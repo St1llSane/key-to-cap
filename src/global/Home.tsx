@@ -1,11 +1,5 @@
-import { Header } from 'widgets/header'
-
 const Home = () => {
-	return (
-		<main>
-			<Header />
-		</main>
-	)
+	return <main></main>
 }
 
 export default Home
