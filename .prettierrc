@@ -5,7 +5,7 @@
   "singleQuote": true,
   "jsxSingleQuote": true,
   "quoteProps": "consistent",
-  "trailingComma": "all",
+  "trailingComma": "none",
   "bracketSpacing": true,
   "bracketSameLine": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
