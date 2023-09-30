@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { cn } from 'shared/lib/utils/classNames'
 import { jost } from 'shared/styles/fonts'
-import Container from 'widgets/container'
 import Header from 'widgets/header'
-import Providers from './Providers'
+import Container from 'widgets/layouts/container'
 import './main.css'
+import Providers from './providers'
 
 export const metadata: Metadata = {
   title: 'KeyToCap Store',
@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className='text-foreground bg-background'
+      className='bg-background text-foreground'
       lang='en'
       suppressHydrationWarning
     >

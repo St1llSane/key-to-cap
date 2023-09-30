@@ -1,11 +1,15 @@
-import Container from 'widgets/container'
-import Nav from 'widgets/nav'
+'use client'
+
+import Logo from 'shared/ui/logo'
+import Container from 'widgets/layouts/container'
+import MainNav from './layouts/main-nav'
 
 const Header = () => {
   return (
     <header className='py-5'>
-      <Container>
-        <Nav />
+      <Container className='flex items-center gap-x-10'>
+        <Logo />
+        <MainNav />
       </Container>
     </header>
   )
