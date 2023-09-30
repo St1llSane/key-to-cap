@@ -7,8 +7,11 @@
   "quoteProps": "consistent",
   "trailingComma": "none",
   "bracketSpacing": true,
-  "bracketSameLine": true,
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "bracketSameLine": false,
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
   "importOrderSeparation": false,
   "importOrderSortSpecifiers": true

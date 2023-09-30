@@ -1,1 +1,1 @@
-export { default } from 'global/Home'
+export { default } from 'global/home'
