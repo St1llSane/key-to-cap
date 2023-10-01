@@ -29,6 +29,10 @@ module.exports = {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))'
         },
+        secondary_dark: {
+          DEFAULT: 'hsl(var(--secondary_dark))',
+          foreground: 'hsl(var(--secondary_dark-foreground))'
+        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
@@ -40,6 +44,10 @@ module.exports = {
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))'
+        },
+        accent_dark: {
+          DEFAULT: 'hsl(var(--accent_dark))',
+          foreground: 'hsl(var(--accent_dark-foreground))'
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',

@@ -1,8 +1,9 @@
 'use client'
 
-import Logo from 'shared/ui/logo'
+import Logo from 'shared/ui/links/logo'
 import Container from 'widgets/layouts/container'
-import MainNav from './layouts/main-nav'
+import MainNav from 'widgets/layouts/main-nav'
+import UserMenu from 'widgets/user-menu'
 
 const Header = () => {
   return (
@@ -10,6 +11,7 @@ const Header = () => {
       <Container className='flex items-center gap-x-10'>
         <Logo />
         <MainNav />
+        <UserMenu />
       </Container>
     </header>
   )

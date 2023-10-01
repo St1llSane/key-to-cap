@@ -12,25 +12,33 @@ const MainNav = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Keyboards</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='text-base'>
+            Keyboards
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <NavigationMenuLink>Link</NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Mouses</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='text-base'>
+            Mouses
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <NavigationMenuLink>Link</NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>{' '}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Mouse pads</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='text-base'>
+            Mouse pads
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <NavigationMenuLink>Link</NavigationMenuLink>
           </NavigationMenuContent>
         </NavigationMenuItem>{' '}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Keycaps</NavigationMenuTrigger>
+          <NavigationMenuTrigger className='text-base'>
+            Keycaps
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <NavigationMenuLink>Link</NavigationMenuLink>
           </NavigationMenuContent>
