@@ -24,7 +24,7 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 2400% 46%;
 
-    --accent: 60, 100%, 62%;
+    --accent: 60, 100%, 60%;
     --accent-foreground: 240 10% 4%;
     --accent_dark: 60, 100%, 44%;
     --accent_dark-foreground: 240 10% 4%;
@@ -76,5 +76,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px hsl(0, 0%, 90%);
   }
 }
