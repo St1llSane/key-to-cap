@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "eslint --fix .",
+    "pretty:write": "prettier --write .",
     "prepare": "husky install"
   },
   "husky": {
@@ -18,12 +19,12 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "prettier --write",
-      "eslint --fix",
+      "npm run pretty:write",
+      "npm run lint:fix",
       "git add"
     ],
     "*.{html,css,less,ejs,json}": [
-      "prettier --write",
+      "npm run pretty:write",
       "git add"
     ]
   },
@@ -48,6 +49,7 @@
     "eslint-config-next": "13.5.2",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
+    "lint-staged": "^15.0.0",
     "husky": "^8.0.3",
     "jest": "^29.7.0",
     "lucide-react": "^0.279.0",
