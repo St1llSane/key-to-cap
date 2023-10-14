@@ -7,7 +7,7 @@ import { Button } from 'shared/ui/buttons/button'
 
 const Hero = () => {
   return (
-    <section className='grid h-[calc(100vh_-_80px)] grid-cols-[600px_1fr] place-content-center gap-10'>
+    <section className="grid h-[calc(100vh_-_80px)] grid-cols-[600px_1fr] place-content-center gap-10">
       <div className='relative z-10'>
         <h1 className='text-xl'>KEYCAP. store</h1>
         <p

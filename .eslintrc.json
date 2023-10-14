@@ -23,8 +23,6 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off",
-    "react/jsx-uses-react": "off",
     "@typescript-eslint/quotes": [
       "error",
       "single",
@@ -32,6 +30,8 @@
         "allowTemplateLiterals": true
       }
     ],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
     "react/prop-types": 0,
     "react/jsx-key": 2,
     "react/no-find-dom-node": 2,
