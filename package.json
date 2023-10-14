@@ -19,12 +19,10 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
-      "git add",
       "npm run pretty:write",
       "npm run lint:fix"
     ],
     "*.{html,css,less,ejs,json}": [
-      "git add",
       "npm run pretty:write"
     ]
   },
