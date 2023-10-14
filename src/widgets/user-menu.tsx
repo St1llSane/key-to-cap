@@ -4,7 +4,7 @@ import ProfileLink from 'features/links/profile-link'
 
 const UserMenu = () => {
   return (
-    <div className='flex items-center gap-x-3 ml-auto'>
+    <div className='ml-auto flex items-center gap-x-3'>
       <SearchBtn />
       <CartLink />
       <ProfileLink />
