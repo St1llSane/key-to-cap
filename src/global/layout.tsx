@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { cn } from 'shared/lib/utils/classNames'
 import { jost } from 'shared/styles/fonts'
-import Header from 'widgets/layouts/header'
 import Container from 'widgets/layouts/container'
+import Header from 'widgets/layouts/header'
 import './main.css'
 import Providers from './providers'
 
