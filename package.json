@@ -19,13 +19,13 @@
   },
   "lint-staged": {
     "*.{js,jsx}": [
+      "git add",
       "npm run pretty:write",
-      "npm run lint:fix",
-      "git add"
+      "npm run lint:fix"
     ],
     "*.{html,css,less,ejs,json}": [
-      "npm run pretty:write",
-      "git add"
+      "git add",
+      "npm run pretty:write"
     ]
   },
   "dependencies": {
