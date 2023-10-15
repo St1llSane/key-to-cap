@@ -1,3 +1,3 @@
 export const TITLE = {
-  HERO_TITLE: 'KEYCAP. store',
+  HERO_TITLE: 'KEYCAP. store'
 }

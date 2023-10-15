@@ -69,7 +69,7 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      'data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-[488px] data-[motion=from-start]:slide-in-from-left-[488px] data-[motion=to-end]:slide-out-to-right-[488px] data-[motion=to-start]:slide-out-to-left-[488px] left-0 top-0 w-full min-w-[488px] p-4 md:absolute md:w-auto',
+      'left-0 top-0 w-full min-w-[488px] p-4 data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-[488px] data-[motion=from-start]:slide-in-from-left-[488px] data-[motion=to-end]:slide-out-to-right-[488px] data-[motion=to-start]:slide-out-to-left-[488px] md:absolute md:w-auto',
       className
     )}
     {...props}
@@ -87,7 +87,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className={cn('absolute left-0 top-full flex justify-center')}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        'origin-top-center data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-[10%] data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow md:w-[var(--radix-navigation-menu-viewport-width)]',
+        'origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border border-border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-[10%] data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]',
         className
       )}
       ref={ref}
@@ -105,7 +105,7 @@ const NavigationMenuIndicator = React.forwardRef<
   <NavigationMenuPrimitive.Indicator
     ref={ref}
     className={cn(
-      'data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden',
+      'top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in',
       className
     )}
     {...props}
