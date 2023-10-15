@@ -1,3 +1,4 @@
+import { BUTTON } from 'shared/constants/buttons'
 import { TEXT } from 'shared/constants/texts'
 import { TITLE } from 'shared/constants/titles'
 import { cn } from 'shared/lib/utils/classNames'
@@ -23,10 +24,10 @@ const Hero = () => {
             {TEXT.HERO_SUBTITLE[1]}
           </span>
         </p>
-        <Button className='mt-10 w-fit'>Show me more</Button>
+        <Button className='mt-10 w-fit'>{BUTTON.SHOW_ME}</Button>
       </div>
       <div className='relative grid justify-end'>
-        <p className='absolute -top-32 right-0 flex flex-col'>
+        {/* <p className='absolute -top-32 right-0 flex flex-col'>
           {TEXT.HERO_CALLS.map((call) => (
             <span
               className={cn(
@@ -38,8 +39,9 @@ const Hero = () => {
               {call}
             </span>
           ))}
-        </p>
+        </p> */}
         <SmallKeyboard />
+        <p className='mr-1 mt-2 text-right'>{TEXT.HERO_CALL_TO_ACTION}</p>
       </div>
     </section>
   )

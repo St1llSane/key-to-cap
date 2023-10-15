@@ -2,7 +2,7 @@
 
 import Logo from 'shared/ui/links/logo'
 import Container from 'widgets/layouts/container'
-import MainNav from 'widgets/layouts/main-nav'
+import Nav from 'widgets/layouts/nav'
 import UserMenu from 'widgets/user-menu'
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
     <header className='py-5'>
       <Container className='flex items-center gap-x-10'>
         <Logo />
-        <MainNav />
+        <Nav />
         <UserMenu />
       </Container>
     </header>
