@@ -1,1 +1,3 @@
-export const HERO_CALLS = ['Press.', 'Enjoy.']
+export const TITLE = {
+  HERO_TITLE: 'KEYCAP. store',
+}
