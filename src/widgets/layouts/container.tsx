@@ -1,4 +1,4 @@
-import { cn } from 'shared/lib/utils/classNames'
+import { cn } from 'shared/utils/classNames'
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {}
 

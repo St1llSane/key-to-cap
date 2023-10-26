@@ -1,10 +1,10 @@
 import { BUTTON } from 'shared/constants/buttons'
 import { TEXT } from 'shared/constants/texts'
 import { TITLE } from 'shared/constants/titles'
-import { cn } from 'shared/lib/utils/classNames'
 import { chivo } from 'shared/styles/fonts'
 import SmallKeyboard from 'shared/ui/3d/small-keyboard'
 import { Button } from 'shared/ui/buttons/button'
+import { cn } from 'shared/utils/classNames'
 
 const Hero = () => {
   return (

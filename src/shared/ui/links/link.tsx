@@ -1,8 +1,8 @@
 import { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import { ReactElement } from 'react'
-import { cn } from 'shared/lib/utils/classNames'
 import { LinkVariantsProps } from 'shared/types/link'
+import { cn } from 'shared/utils/classNames'
 import { Button } from '../buttons/button'
 
 interface CustomLinkProps

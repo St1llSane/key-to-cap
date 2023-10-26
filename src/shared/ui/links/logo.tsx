@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { TITLE } from 'shared/constants/titles'
-import { cn } from 'shared/lib/utils/classNames'
 import { chivo } from 'shared/styles/fonts'
+import { cn } from 'shared/utils/classNames'
 
 const logo = () => {
   return (

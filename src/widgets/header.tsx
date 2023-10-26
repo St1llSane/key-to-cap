@@ -8,7 +8,7 @@ import UserMenu from 'widgets/user-menu'
 const Header = () => {
   return (
     <header className='py-5'>
-      <Container className='flex items-center gap-x-10'>
+      <Container className='flex items-center gap-x-8'>
         <Logo />
         <Nav />
         <UserMenu />
