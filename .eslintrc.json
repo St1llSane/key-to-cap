@@ -11,8 +11,9 @@
   },
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "next/core-web-vitals"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -35,7 +36,7 @@
     "react/prop-types": 0,
     "react/jsx-key": 2,
     "react/no-find-dom-node": 2,
-    "no-unused-vars": 2,
+    "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
     "prettier/prettier": "error"
   }
 }

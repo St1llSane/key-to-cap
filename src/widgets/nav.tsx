@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
 import { ChevronDown } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
@@ -143,9 +142,8 @@ const Nav = () => {
 
 const NavItemTrigger = ({
   categoryName,
-  activeNavItem
-} // setActiveNavItem
-: {
+  activeNavItem // setActiveNavItem
+}: {
   categoryName: string
   activeNavItem: string | null
   // setActiveNavItem: (value: string | null) => void

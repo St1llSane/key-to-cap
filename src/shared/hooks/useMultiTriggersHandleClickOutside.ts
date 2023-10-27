@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { RefObject, useEffect } from 'react'
 
 export const useMultiTriggersHandleClickOutside = (
   state: string | null,
   ref: RefObject<HTMLElement> | null,
-  handler: (value: string | null) => void
+  handler: (_value: string | null) => void
 ) => {
   useEffect(() => {
     const isRefObjectContainsTarget = (e: MouseEvent) => {
