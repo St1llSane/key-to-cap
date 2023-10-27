@@ -1,1 +1,1 @@
-export { default } from 'global/Layout'
+export { default } from 'global/layout'
