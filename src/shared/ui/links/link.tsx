@@ -1,21 +1,18 @@
-import { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
-import { ReactElement } from 'react'
-import { LinkVariantsProps } from 'shared/types/link'
-import { cn } from 'shared/utils/classNames'
-import { Button } from '../buttons/button'
+import type { ReactElement } from 'react'
+import type { LinkVariantsProps } from 'shared/types/link'
+import { Button } from 'shared/ui/buttons/button'
 
 interface CustomLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  className?: string
   variant?: LinkVariantsProps
   path: string
   Icon?: ReactElement<LucideIcon>
   children?: React.ReactNode
 }
 
-const CustomLink = ({
-  className,
+const LinkButton = ({
   variant,
   path,
   Icon,
@@ -24,11 +21,7 @@ const CustomLink = ({
 }: CustomLinkProps) => {
   return (
     <Button variant={variant ? variant : 'ghost'} size='icon' asChild>
-      <Link
-        className={(cn('flex items-center gap-x-2'), className)}
-        href={`/${path}`}
-        {...props}
-      >
+      <Link href={`/${path}`} {...props}>
         {Icon && Icon}
         {children && <span>{children}</span>}
       </Link>
@@ -36,4 +29,4 @@ const CustomLink = ({
   )
 }
 
-export default CustomLink
+export default LinkButton

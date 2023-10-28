@@ -1,10 +1,10 @@
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
-import CustomLink from 'shared/ui/links/link'
+import LinkButton from 'shared/ui/links/link'
 
 const CartLink = () => {
   return (
-    <CustomLink
+    <LinkButton
       path='/cart'
       Icon={<ShoppingCart size={20} strokeWidth={1.75} />}
     />

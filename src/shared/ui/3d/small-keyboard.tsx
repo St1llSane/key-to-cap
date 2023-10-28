@@ -5,7 +5,7 @@
 const SmallKeyboard = () => {
   return (
     // <Spline scene='https://draft.spline.design/fscZrqun2XPWGLJm/scene.splinecode' />
-    <>Keyboard</>
+    <div>Keyboard</div>
   )
 }
 

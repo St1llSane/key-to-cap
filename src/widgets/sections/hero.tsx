@@ -13,7 +13,7 @@ const Hero = () => {
         <h1 className='text-xl'>{TITLE.HERO_TITLE}</h1>
         <p
           className={cn(
-            'mt-1 flex flex-col text-[64px] font-bold uppercase leading-[84px]',
+            'mt-1 flex flex-col text-[64px] font-bold uppercase leading-[78px]',
             inter.className
           )}
         >

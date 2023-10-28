@@ -1,9 +1,9 @@
 import { User2 } from 'lucide-react'
-import CustomLink from 'shared/ui/links/link'
+import LinkButton from 'shared/ui/links/link'
 
 const ProfileLink = () => {
   return (
-    <CustomLink
+    <LinkButton
       path='profile'
       Icon={<User2 size={20} strokeWidth={1.75} />}
     />
