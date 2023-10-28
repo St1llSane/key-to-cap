@@ -1,4 +1,4 @@
-import { Chivo, Jost } from 'next/font/google'
+import { Inter, Jost } from 'next/font/google'
 
 export const jost = Jost({
   subsets: ['latin'],
@@ -7,7 +7,7 @@ export const jost = Jost({
   display: 'swap'
 })
 
-export const chivo = Chivo({
+export const inter = Inter({
   subsets: ['latin'],
   weight: ['700'],
   style: ['normal'],

@@ -147,10 +147,10 @@ const NavItemTrigger = ({
 }) => {
   return (
     <li className='flex cursor-pointer items-center gap-x-2 rounded-md px-4 py-1.5 text-base hover:bg-accent'>
-      <span>{categoryName}</span>
+      <span className='select-none'>{categoryName}</span>
       <ChevronDown
         className={cn(
-          'mt-[2px] transition-transform',
+          'pointer-events-none mt-[2px] transition-transform',
           activeNavItem === categoryName && 'rotate-180'
         )}
         size={14}
@@ -188,10 +188,10 @@ const NavItemContent = ({
         >
           <span className='absolute inset-0 z-10 bg-black bg-opacity-[65%]' />
           <Image
-            className='object-cover transition-transform duration-200 will-change-transform group-hover:scale-[106%]'
+            className='h-full object-cover transition-transform duration-200 will-change-transform group-hover:scale-[106%]'
             src={previewImageSrc}
-            fill
             alt={categoryName}
+            priority
           />
           <span className='absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-medium uppercase tracking-wider text-background'>
             {previewImageText}
