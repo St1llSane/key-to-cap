@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { RefObject, useRef, useState } from 'react'
-import { useMultiTriggersHandleClickOutside } from 'shared/hooks/useMultiTriggersHandleClickOutside'
+import { useMultiTargetsHandleClickOutside } from 'shared/hooks/useMultiTargetsHandleClickOutside'
 import { cn } from 'shared/utils/classNames'
 
 const navData = {
@@ -100,7 +100,7 @@ const Nav = () => {
   const [activeNavItem, setActiveNavItem] = useState<string | null>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  useMultiTriggersHandleClickOutside(
+  useMultiTargetsHandleClickOutside(
     activeNavItem,
     contentRef,
     setActiveNavItem
@@ -113,7 +113,6 @@ const Nav = () => {
           <NavItemTrigger
             categoryName={categoryName}
             activeNavItem={activeNavItem}
-            // setActiveNavItem={setActiveNavItem}
             key={categoryName}
           />
         ))}
@@ -131,7 +130,6 @@ const Nav = () => {
             products={products}
             activeNavItem={activeNavItem}
             contentRef={contentRef}
-            // setActiveNavItem={setActiveNavItem}
             key={categoryName}
           />
         )
@@ -142,21 +140,13 @@ const Nav = () => {
 
 const NavItemTrigger = ({
   categoryName,
-  activeNavItem // setActiveNavItem
+  activeNavItem
 }: {
   categoryName: string
   activeNavItem: string | null
-  // setActiveNavItem: (value: string | null) => void
 }) => {
   return (
-    <li
-      className='flex cursor-pointer items-center gap-x-2 rounded-md px-4 py-1.5 text-base hover:bg-accent'
-      // onClick={() =>
-      //   setActiveNavItem(
-      //     categoryName === activeNavItem ? null : categoryName
-      //   )
-      // }
-    >
+    <li className='flex cursor-pointer items-center gap-x-2 rounded-md px-4 py-1.5 text-base hover:bg-accent'>
       <span>{categoryName}</span>
       <ChevronDown
         className={cn(
@@ -176,7 +166,7 @@ const NavItemContent = ({
   categoryName,
   products,
   activeNavItem,
-  contentRef // setActiveNavItem
+  contentRef
 }: {
   categoryHref: string
   previewImageSrc: StaticImageData
@@ -185,7 +175,6 @@ const NavItemContent = ({
   products: { productHref: string; title: string; description: string }[]
   activeNavItem: string | null
   contentRef: RefObject<HTMLDivElement>
-  // setActiveNavItem: (value: string | null) => void
 }) => {
   return (
     activeNavItem === categoryName && (

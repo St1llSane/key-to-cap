@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RefObject, useEffect } from 'react'
 
-export const useMultiTriggersHandleClickOutside = (
+export const useMultiTargetsHandleClickOutside = (
   state: string | null,
   ref: RefObject<HTMLElement> | null,
   handler: (_value: string | null) => void
