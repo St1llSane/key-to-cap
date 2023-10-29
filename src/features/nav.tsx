@@ -126,9 +126,7 @@ const Nav = () => {
             { categoryHref, previewImageSrc, previewImageText, products }
           ]) => (
             <NavigationMenuItem key={categoryName}>
-              <NavigationMenuTrigger className='text-base hover:bg-accent'>
-                {categoryName}
-              </NavigationMenuTrigger>
+              <NavigationMenuTrigger>{categoryName}</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <NavigationMenuLink>
                   <NavItemContent
@@ -178,7 +176,7 @@ const NavItemContent = ({
         />
         <span
           className={cn(
-            'absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-semibold uppercase tracking-wider text-background',
+            'absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-semibold uppercase tracking-[0.075em] text-background',
             inter.className
           )}
         >

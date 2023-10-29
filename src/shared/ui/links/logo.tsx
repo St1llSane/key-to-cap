@@ -7,7 +7,7 @@ const logo = () => {
   return (
     <Link
       className={cn(
-        'text-2xl font-bold transition-colors hover:text-accent_dark',
+        'text-2xl font-bold transition-colors hover:text-secondary',
         inter.className
       )}
       href='/'
