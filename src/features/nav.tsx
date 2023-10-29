@@ -4,8 +4,9 @@ import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
 import { ChevronDown } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { RefObject, useRef, useState } from 'react'
+import { type RefObject, useRef, useState } from 'react'
 import { useMultiTargetsHandleClickOutside } from 'shared/hooks/useMultiTargetsHandleClickOutside'
+import { Button } from 'shared/ui/buttons/button'
 import { cn } from 'shared/utils/classNames'
 
 const navData = {
@@ -110,7 +111,7 @@ const Nav = () => {
 
   return (
     <nav className='relative'>
-      <ul className='flex'>
+      <ul className='flex gap-x-1'>
         {Object.entries(navData).map(([categoryName]) => (
           <NavItemTrigger
             categoryName={categoryName}
@@ -148,15 +149,22 @@ const NavItemTrigger = ({
   activeNavItem: string | null
 }) => {
   return (
-    <li className='flex cursor-pointer items-center gap-x-2 rounded-md px-4 py-1.5 text-base hover:bg-accent'>
-      <span className='select-none'>{categoryName}</span>
-      <ChevronDown
-        className={cn(
-          'pointer-events-none mt-[2px] transition-transform',
-          activeNavItem === categoryName && 'rotate-180'
-        )}
-        size={14}
-      />
+    <li
+      className={cn(
+        'flex cursor-pointer items-center gap-x-2 rounded-md text-base hover:bg-accent',
+        { 'bg-accent': activeNavItem === categoryName }
+      )}
+    >
+      <Button variant='ghost'>
+        <span className='select-none'>{categoryName}</span>
+        <ChevronDown
+          className={cn(
+            'pointer-events-none mt-[2px] transition-transform',
+            { 'rotate-180': activeNavItem === categoryName }
+          )}
+          size={14}
+        />
+      </Button>
     </li>
   )
 }
