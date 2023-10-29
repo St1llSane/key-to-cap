@@ -1,13 +1,21 @@
 'use client'
 
 import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
-import { ChevronDown } from 'lucide-react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { type RefObject, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useMultiTargetsHandleClickOutside } from 'shared/hooks/useMultiTargetsHandleClickOutside'
-import { Button } from 'shared/ui/buttons/button'
+import { inter } from 'shared/styles/fonts'
 import { cn } from 'shared/utils/classNames'
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger
+} from 'widgets/navigation-menu'
 
 const navData = {
   'Keyboards': {
@@ -110,62 +118,35 @@ const Nav = () => {
   )
 
   return (
-    <nav className='relative'>
-      <ul className='flex gap-x-1'>
-        {Object.entries(navData).map(([categoryName]) => (
-          <NavItemTrigger
-            categoryName={categoryName}
-            activeNavItem={activeNavItem}
-            key={categoryName}
-          />
-        ))}
-      </ul>
-      {Object.entries(navData).map(
-        ([
-          categoryName,
-          { categoryHref, previewImageSrc, previewImageText, products }
-        ]) => (
-          <NavItemContent
-            categoryHref={categoryHref}
-            previewImageSrc={previewImageSrc}
-            previewImageText={previewImageText}
-            categoryName={categoryName}
-            products={products}
-            activeNavItem={activeNavItem}
-            contentRef={contentRef}
-            key={categoryName}
-          />
-        )
-      )}
-    </nav>
-  )
-}
-
-const NavItemTrigger = ({
-  categoryName,
-  activeNavItem
-}: {
-  categoryName: string
-  activeNavItem: string | null
-}) => {
-  return (
-    <li
-      className={cn(
-        'flex cursor-pointer items-center gap-x-2 rounded-md text-base hover:bg-accent',
-        { 'bg-accent': activeNavItem === categoryName }
-      )}
-    >
-      <Button variant='ghost'>
-        <span className='select-none'>{categoryName}</span>
-        <ChevronDown
-          className={cn(
-            'pointer-events-none mt-[2px] transition-transform',
-            { 'rotate-180': activeNavItem === categoryName }
-          )}
-          size={14}
-        />
-      </Button>
-    </li>
+    <NavigationMenu>
+      <NavigationMenuList>
+        {Object.entries(navData).map(
+          ([
+            categoryName,
+            { categoryHref, previewImageSrc, previewImageText, products }
+          ]) => (
+            <NavigationMenuItem key={categoryName}>
+              <NavigationMenuTrigger className='text-base hover:bg-accent'>
+                {categoryName}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <NavigationMenuLink>
+                  <NavItemContent
+                    categoryHref={categoryHref}
+                    previewImageSrc={previewImageSrc}
+                    previewImageText={previewImageText}
+                    categoryName={categoryName}
+                    products={products}
+                    key={categoryName}
+                  />
+                </NavigationMenuLink>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          )
+        )}
+        <NavigationMenuIndicator className='NavigationMenuIndicator' />
+      </NavigationMenuList>
+    </NavigationMenu>
   )
 }
 
@@ -174,55 +155,51 @@ const NavItemContent = ({
   previewImageSrc,
   previewImageText,
   categoryName,
-  products,
-  activeNavItem,
-  contentRef
+  products
 }: {
   categoryHref: string
   previewImageSrc: StaticImageData
   previewImageText: string
   categoryName: string
   products: { productHref: string; title: string; description: string }[]
-  activeNavItem: string | null
-  contentRef: RefObject<HTMLDivElement>
 }) => {
   return (
-    activeNavItem === categoryName && (
-      <div
-        className='absolute mt-1.5 flex h-64 w-full max-w-[510px] justify-between gap-4 overflow-hidden rounded-md border border-border bg-popover p-4 text-popover-foreground shadow'
-        ref={contentRef}
+    <div className='flex h-64 max-w-[510px] justify-between gap-4 overflow-hidden'>
+      <Link
+        className='group relative h-full w-[40%] overflow-hidden rounded-md'
+        href={categoryHref}
       >
-        <Link
-          className='group relative h-full w-[40%] overflow-hidden rounded-md'
-          href={categoryHref}
+        <span className='absolute inset-0 z-10 bg-black bg-opacity-[65%]' />
+        <Image
+          className='h-full object-cover transition-transform duration-200 will-change-transform group-hover:scale-[106%]'
+          src={previewImageSrc}
+          alt={categoryName}
+          priority
+        />
+        <span
+          className={cn(
+            'absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-semibold uppercase tracking-wider text-background',
+            inter.className
+          )}
         >
-          <span className='absolute inset-0 z-10 bg-black bg-opacity-[65%]' />
-          <Image
-            className='h-full object-cover transition-transform duration-200 will-change-transform group-hover:scale-[106%]'
-            src={previewImageSrc}
-            alt={categoryName}
-            priority
-          />
-          <span className='absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-medium uppercase tracking-wider text-background'>
-            {previewImageText}
-          </span>
-        </Link>
-        <div className='grid flex-1 grid-cols-1 grid-rows-4'>
-          {products.map((product) => (
-            <Link
-              className='flex h-full flex-col items-start justify-center gap-[2px] rounded-md px-3 transition-colors hover:bg-accent'
-              href={product.productHref}
-              key={product.title}
-            >
-              <h4 className='font-medium'>{product.title}</h4>
-              <p className='text-sm text-secondary-foreground'>
-                {product.description}
-              </p>
-            </Link>
-          ))}
-        </div>
+          {previewImageText}
+        </span>
+      </Link>
+      <div className='grid flex-1 grid-cols-1 grid-rows-4'>
+        {products.map((product) => (
+          <Link
+            className='flex h-full flex-col items-start justify-center gap-[2px] rounded-md px-3 transition-colors hover:bg-accent'
+            href={product.productHref}
+            key={product.title}
+          >
+            <h4 className='font-medium'>{product.title}</h4>
+            <p className='text-sm text-secondary-foreground'>
+              {product.description}
+            </p>
+          </Link>
+        ))}
       </div>
-    )
+    </div>
   )
 }
 
