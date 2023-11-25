@@ -1,8 +1,11 @@
+import { VariantProps } from 'class-variance-authority'
 import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import type { ReactElement } from 'react'
-import type { LinkVariantsProps } from 'shared/types/link'
 import { Button } from 'shared/ui/buttons/button'
+import { buttonVariants } from 'shared/ui/buttons/button'
+
+type LinkVariantsProps = VariantProps<typeof buttonVariants>['variant']
 
 interface CustomLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
