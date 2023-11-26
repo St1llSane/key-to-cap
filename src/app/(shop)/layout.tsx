@@ -22,7 +22,7 @@ export default function RootLayout({
       lang='en'
       suppressHydrationWarning
     >
-      <body className={cn('text-base', jost.className)}>
+      <body className={cn('text-base font-normal', jost.className)}>
         <Providers attribute='class' defaultTheme='system' enableSystem>
           <Header />
           <Container>{children}</Container>

@@ -3,10 +3,7 @@
 import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-import { useRef, useState } from 'react'
-import { useMultiTargetsHandleClickOutside } from 'shared/hooks/useMultiTargetsHandleClickOutside'
 import { inter } from 'shared/styles/fonts'
-import { cn } from 'shared/utils/classNames'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,7 +12,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger
-} from 'widgets/navigation-menu'
+} from 'shared/ui/navigation-menu'
+import { cn } from 'shared/utils/classNames'
 
 const navData = {
   'Keyboards': {
@@ -108,15 +106,6 @@ const navData = {
 }
 
 const Nav = () => {
-  const [activeNavItem, setActiveNavItem] = useState<string | null>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useMultiTargetsHandleClickOutside(
-    activeNavItem,
-    contentRef,
-    setActiveNavItem
-  )
-
   return (
     <NavigationMenu>
       <NavigationMenuList>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { jost } from 'shared/styles/fonts'
 import { cn } from 'shared/utils/classNames'
-import Container from 'widgets/layouts/container'
 import '../main.css'
 import Providers from '../providers'
 
@@ -21,9 +20,9 @@ export default function RootLayout({
       lang='en'
       suppressHydrationWarning
     >
-      <body className={cn('text-base', jost.className)}>
+      <body className={cn('text-base font-normal', jost.className)}>
         <Providers attribute='class' defaultTheme='system' enableSystem>
-          <Container>{children}</Container>
+          {children}
         </Providers>
       </body>
     </html>
