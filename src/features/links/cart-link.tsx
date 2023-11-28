@@ -6,7 +6,13 @@ const CartLink = () => {
   return (
     <LinkButton
       path='/cart'
-      Icon={<ShoppingCart size={20} strokeWidth={1.75} />}
+      Icon={
+        <ShoppingCart
+          className='text-primary'
+          size={20}
+          strokeWidth={1.75}
+        />
+      }
     />
   )
 }

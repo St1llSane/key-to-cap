@@ -13,15 +13,20 @@ import {
   FormMessage
 } from 'shared/ui/forms/form'
 import { Input } from 'shared/ui/inputs/input'
+import PasswordInput from 'shared/ui/inputs/password-input'
 import * as z from 'zod'
+
+export interface SignInFormInputs {
+  email: string
+  password: string
+}
 
 const SignInForm = () => {
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
       email: '',
-      password: '',
-      passwordConfirm: ''
+      password: ''
     }
   })
 
@@ -57,28 +62,7 @@ const SignInForm = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder='Aa123456'
-                    type='password'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name='passwordConfirm'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Confirm password</FormLabel>
-                <FormControl>
-                  <Input
-                    placeholder='Aa123456'
-                    type='password'
-                    {...field}
-                  />
+                  <PasswordInput {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

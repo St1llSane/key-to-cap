@@ -8,7 +8,7 @@ const inputVariants = cva(
     variants: {
       variant: {
         default:
-          'bg-background text-foreground border border-border rounded-md pt-2 pb-1.5 px-3 focus-visible:outline-none focus-visible:border-foreground',
+          'bg-background text-foreground border border-border rounded-md h-10 px-3 focus-visible:outline-none focus-visible:border-foreground',
         underline:
           'border-b border-input bg-background py-1.5 pl-1.5 pr-3 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:rounded-sm focus-visible:ring-offset-2',
         file: 'border-0 bg-transparent text-sm font-medium',
@@ -30,9 +30,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         type={type}
-        className={cn(inputVariants({ variant, className }), {
-          'font-sans': type === 'password'
-        })}
+        className={cn(
+          'transition-colors',
+          inputVariants({ variant, className })
+        )}
         ref={ref}
         {...props}
       />

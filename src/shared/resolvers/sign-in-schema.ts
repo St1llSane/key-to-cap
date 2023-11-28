@@ -8,8 +8,5 @@ export const signInSchema = z.object({
   }),
   password: z.string().min(8, {
     message: 'Invalid password'
-  }),
-  passwordConfirm: z.string().min(8, {
-    message: 'Invalid password'
   })
 })
