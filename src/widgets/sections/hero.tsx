@@ -1,6 +1,3 @@
-import { BUTTON } from 'shared/constants/buttons'
-import { TEXT } from 'shared/constants/texts'
-import { TITLE } from 'shared/constants/titles'
 import { inter } from 'shared/styles/fonts'
 import SmallKeyboard from 'shared/ui/3d/small-keyboard'
 import { Button } from 'shared/ui/buttons/button'
@@ -10,25 +7,23 @@ const Hero = () => {
   return (
     <section className='grid h-[calc(100vh_-_80px)] grid-cols-[600px_1fr] place-content-center items-center gap-10'>
       <div className='relative z-10'>
-        <h1 className='text-xl'>{TITLE.HERO_TITLE}</h1>
+        <h1 className='text-xl'>KEYCAP. store</h1>
         <p
           className={cn(
             'mt-2 flex flex-col text-[63px] font-bold uppercase leading-[78px]',
             inter.className
           )}
         >
-          <span className='tracking-[0.01em]'>
-            {TEXT.HERO.SUBTITLE[0]}
-          </span>
-          <span className='tracking-[0.01em]'>
-            {TEXT.HERO.SUBTITLE[1]}
-          </span>
+          <span className='tracking-[0.01em]'>One glance is enough,</span>
+          <span className='tracking-[0.01em]'>one press - isn&apos;t</span>
         </p>
-        <Button className='mt-8 w-fit'>{BUTTON.SHOW_ME}</Button>
+        <Button className='mt-8 w-fit'>Show me!</Button>
       </div>
       <div className='relative grid justify-end'>
         <SmallKeyboard />
-        <p className='mr-1 mt-2 text-right'>{TEXT.HERO.CALL_TO_ACTION}</p>
+        <p className='mr-1 mt-2 text-right'>
+          *Press some keys on your keyboard
+        </p>
       </div>
     </section>
   )

@@ -3,7 +3,7 @@ import * as React from 'react'
 import { cn } from 'shared/utils/classNames'
 
 const inputVariants = cva(
-  'flex w-full bg-background text-base placeholder:text-muted-foreground',
+  'flex w-full bg-background text-base placeholder:text-muted-foreground transition-colors',
   {
     variants: {
       variant: {
@@ -26,14 +26,10 @@ export interface InputProps
     VariantProps<typeof inputVariants> {}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, variant, type, ...props }, ref) => {
+  ({ className, variant, ...props }, ref) => {
     return (
       <input
-        type={type}
-        className={cn(
-          'transition-colors',
-          inputVariants({ variant, className })
-        )}
+        className={cn(inputVariants({ variant, className }))}
         ref={ref}
         {...props}
       />
