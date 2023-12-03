@@ -1,6 +1,7 @@
 import keyboard from 'assets/keyboards/varmilo/Varmilo_Summit_R1_87/Varmilo_Summit_R1_87_4.webp'
 import SignInForm from 'features/forms/sign-in-form'
 import Image from 'next/image'
+import Logo from 'shared/ui/links/logo'
 
 const SignIn = () => {
   return (
@@ -14,8 +15,13 @@ const SignIn = () => {
         />
         <div className='absolute inset-0 z-10 bg-primary opacity-30' />
       </div>
-      <div className='w-full max-w-sm place-self-center'>
-        <SignInForm />
+      <div className='relative grid h-full w-full place-content-center'>
+        <div className='absolute left-8 top-6'>
+          <Logo />
+        </div>
+        <div className='w-full max-w-sm'>
+          <SignInForm />
+        </div>
       </div>
     </div>
   )

@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { signInSchema } from 'shared/schemas/sign-in-schema'
+import { signUpSchema } from 'shared/schemas/sign-up-schema'
 import { Button } from 'shared/ui/buttons/button'
 import {
   Form,
@@ -21,24 +21,26 @@ import AuthWithProviders from './auth-with-providers'
 export interface SignInFormInputs {
   email: string
   password: string
+  confirmPassword: string
 }
 
-const SignInForm = () => {
-  const form = useForm<z.infer<typeof signInSchema>>({
-    resolver: zodResolver(signInSchema),
+const SignUpForm = () => {
+  const form = useForm<z.infer<typeof signUpSchema>>({
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
   })
 
-  function onSubmit(values: z.infer<typeof signInSchema>) {
+  function onSubmit(values: z.infer<typeof signUpSchema>) {
     console.log(values)
   }
 
   return (
     <div className='flex flex-col gap-y-6'>
-      <h2 className='text-3xl font-medium'>Sign in</h2>
+      <h2 className='text-3xl font-medium'>Sign up</h2>
       <Form {...form}>
         <form
           className='flex flex-col gap-y-4'
@@ -70,6 +72,19 @@ const SignInForm = () => {
               </FormItem>
             )}
           />
+          <FormField
+            control={form.control}
+            name='confirmPassword'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Confirm password</FormLabel>
+                <FormControl>
+                  <PasswordInput {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Button className='mt-3 w-full' type='submit'>
             Submit
           </Button>
@@ -87,23 +102,17 @@ const SignInForm = () => {
       </div>
       <div className='flex items-center justify-between gap-x-2'>
         <span>
-          Don&apos;t have an account?{' '}
+          Already have an account?{' '}
           <Link
             className='underline-offset-[5px] hover:underline'
-            href='/sign-up'
+            href='/sign-in'
           >
-            Sign up
+            Sign in
           </Link>
         </span>
-        <Link
-          className='underline-offset-[5px] hover:underline'
-          href='/sign-in/reset-password'
-        >
-          Reset password
-        </Link>
       </div>
     </div>
   )
 }
 
-export default SignInForm
+export default SignUpForm

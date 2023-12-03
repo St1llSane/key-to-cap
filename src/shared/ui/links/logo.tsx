@@ -1,8 +1,12 @@
 import Link from 'next/link'
+import React from 'react'
 import { inter } from 'shared/styles/fonts'
 import { cn } from 'shared/utils/classNames'
 
-const logo = () => {
+interface LogoProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+
+const Logo = React.forwardRef<HTMLAnchorElement, LogoProps>(() => {
   return (
     <Link
       className={cn(
@@ -14,6 +18,7 @@ const logo = () => {
       KEYCAP.
     </Link>
   )
-}
+})
+Logo.displayName = 'Logo'
 
-export default logo
+export default Logo
