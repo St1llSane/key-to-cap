@@ -9,7 +9,6 @@ import {
   NavigationMenuContent,
   NavigationMenuIndicator,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger
 } from 'shared/ui/navigation-menu'
@@ -17,7 +16,7 @@ import { cn } from 'shared/utils/classNames'
 
 const navData = {
   'Keyboards': {
-    categoryHref: '/keyboards',
+    categoryHref: '/categories/keyboards',
     previewImageSrc: keyboardPreview,
     previewImageText: 'Keyboards',
     products: [
@@ -44,7 +43,7 @@ const navData = {
     ]
   },
   'Mouses': {
-    categoryHref: '/mouses',
+    categoryHref: '/categories/mouses',
     previewImageSrc: keyboardPreview,
     previewImageText: 'Mouses',
     products: [
@@ -66,7 +65,7 @@ const navData = {
     ]
   },
   'Mouse pads': {
-    categoryHref: '/mouse-pads',
+    categoryHref: '/categories/mouse-pads',
     previewImageSrc: keyboardPreview,
     previewImageText: 'Mouse pads',
     products: [
@@ -77,7 +76,7 @@ const navData = {
     ]
   },
   'Keycaps': {
-    categoryHref: '/keycaps',
+    categoryHref: '/categories/keycaps',
     previewImageSrc: keyboardPreview,
     previewImageText: 'Keycaps',
     products: [
@@ -117,16 +116,14 @@ const Nav = () => {
             <NavigationMenuItem key={categoryName}>
               <NavigationMenuTrigger>{categoryName}</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <NavigationMenuLink>
-                  <NavItemContent
-                    categoryHref={categoryHref}
-                    previewImageSrc={previewImageSrc}
-                    previewImageText={previewImageText}
-                    categoryName={categoryName}
-                    products={products}
-                    key={categoryName}
-                  />
-                </NavigationMenuLink>
+                <NavItemContent
+                  categoryHref={categoryHref}
+                  previewImageSrc={previewImageSrc}
+                  previewImageText={previewImageText}
+                  categoryName={categoryName}
+                  products={products}
+                  key={categoryName}
+                />
               </NavigationMenuContent>
             </NavigationMenuItem>
           )
@@ -180,7 +177,7 @@ const NavItemContent = ({
             key={product.title}
           >
             <h4 className='font-medium'>{product.title}</h4>
-            <p className='text-sm text-secondary-foreground'>
+            <p className='text-sm text-muted-foreground'>
               {product.description}
             </p>
           </Link>
