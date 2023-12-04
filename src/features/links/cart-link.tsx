@@ -5,7 +5,7 @@ import LinkButton from 'shared/ui/links/link'
 const CartLink = () => {
   return (
     <LinkButton
-      path='/cart'
+      href='/cart'
       Icon={
         <ShoppingCart
           className='text-primary'

@@ -10,21 +10,21 @@ type LinkVariantsProps = VariantProps<typeof buttonVariants>['variant']
 interface CustomLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: LinkVariantsProps
-  path: string
+  href: string
   Icon?: ReactElement<LucideIcon>
   children?: React.ReactNode
 }
 
 const LinkButton = ({
   variant,
-  path,
+  href,
   Icon,
   children,
   ...props
 }: CustomLinkProps) => {
   return (
     <Button variant={variant ? variant : 'ghost'} size='icon' asChild>
-      <Link href={`/${path}`} {...props}>
+      <Link href={`/${href}`} {...props}>
         {Icon && Icon}
         {children && <span>{children}</span>}
       </Link>
