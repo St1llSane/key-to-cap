@@ -12,6 +12,7 @@ const buttonVariants = cva(
           'font-medium bg-background hover:bg-secondary border border-input',
         dark: 'text-primary-foreground bg-foreground  hover:bg-muted-foreground',
         solid: 'bg-primary text-primary-foreground',
+        underlined: 'underline-offset-[5px] hover:underline',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         secondary:
@@ -20,10 +21,11 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline'
       },
       size: {
-        default: 'h-10 pt-0.5 px-5',
+        default: 'h-10 px-5',
         sm: 'h-9 px-4',
         lg: 'h-11 px-8',
-        icon: 'h-10 w-10'
+        icon: 'h-10 w-10',
+        unset: 'w-fit h-auto'
       }
     },
     defaultVariants: {

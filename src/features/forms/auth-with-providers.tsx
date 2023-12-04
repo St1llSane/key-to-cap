@@ -35,7 +35,7 @@ const AuthWithProviders = React.forwardRef<
           key={provider.name}
         >
           {provider.icon}
-          <span className='mt-0.5'>{provider.name}</span>
+          <span>{provider.name}</span>
         </Button>
       ))}
     </div>

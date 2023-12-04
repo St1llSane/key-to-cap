@@ -5,6 +5,8 @@ import LinkButton from 'shared/ui/links/link'
 const CartLink = () => {
   return (
     <LinkButton
+      variant='ghost'
+      size='icon'
       href='/cart'
       Icon={
         <ShoppingCart

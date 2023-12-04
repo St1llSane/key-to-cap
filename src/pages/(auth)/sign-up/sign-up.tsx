@@ -16,7 +16,7 @@ const SignUp = () => {
         <div className='absolute inset-0 z-10 bg-primary opacity-30' />
       </div>
       <div className='relative grid h-full w-full place-content-center'>
-        <div className='absolute left-8 top-6'>
+        <div className='absolute left-8 top-7'>
           <Logo />
         </div>
         <div className='w-full max-w-sm'>

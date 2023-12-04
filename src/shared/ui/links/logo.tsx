@@ -10,7 +10,7 @@ const Logo = React.forwardRef<HTMLAnchorElement, LogoProps>(() => {
   return (
     <Link
       className={cn(
-        'text-2xl font-bold transition-colors hover:text-muted-foreground',
+        'text-[25px] font-bold transition-colors hover:text-muted-foreground',
         inter.className
       )}
       href='/'

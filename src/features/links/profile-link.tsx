@@ -8,6 +8,8 @@ const ProfileLink = () => {
 
   return (
     <LinkButton
+      variant='ghost'
+      size='icon'
       href={isUserAuth ? 'profile' : 'sign-in'}
       Icon={
         <User2 className='text-primary' size={20} strokeWidth={1.75} />

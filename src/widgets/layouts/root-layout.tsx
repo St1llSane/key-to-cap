@@ -1,15 +1,13 @@
-import type { Metadata } from 'next'
+import 'app/main.css'
 import { jost } from 'shared/styles/fonts'
 import { cn } from 'shared/utils/classNames'
-import '../main.css'
-import Providers from '../providers'
+import Providers from './providers'
 
-export const metadata: Metadata = {
-  title: 'KeyToCap Store',
-  description: 'A store selling custom keyboards'
-}
-
-const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html
       className='bg-background text-foreground'
@@ -24,5 +22,3 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     </html>
   )
 }
-
-export default AuthLayout

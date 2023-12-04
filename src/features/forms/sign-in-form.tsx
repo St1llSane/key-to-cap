@@ -1,7 +1,6 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { signInSchema } from 'shared/schemas/sign-in-schema'
 import { Button } from 'shared/ui/buttons/button'
@@ -15,6 +14,7 @@ import {
 } from 'shared/ui/forms/form'
 import { Input } from 'shared/ui/inputs/input'
 import PasswordInput from 'shared/ui/inputs/password-input'
+import LinkButton from 'shared/ui/links/link'
 import * as z from 'zod'
 import AuthWithProviders from './auth-with-providers'
 
@@ -86,21 +86,19 @@ const SignInForm = () => {
         <AuthWithProviders />
       </div>
       <div className='flex items-center justify-between gap-x-2'>
-        <span>
+        <span className='flex gap-x-1.5 align-baseline'>
           Don&apos;t have an account?{' '}
-          <Link
-            className='underline-offset-[5px] hover:underline'
-            href='/sign-up'
-          >
+          <LinkButton variant='underlined' size='unset' href='/sign-up'>
             Sign up
-          </Link>
+          </LinkButton>
         </span>
-        <Link
-          className='underline-offset-[5px] hover:underline'
+        <LinkButton
+          variant='underlined'
+          size='unset'
           href='/sign-in/reset-password'
         >
           Reset password
-        </Link>
+        </LinkButton>
       </div>
     </div>
   )

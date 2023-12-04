@@ -1,1 +1,1 @@
-export { default } from 'pages/(shop)/shop-layout'
+export { default } from 'widgets/layouts/shop-layout'
