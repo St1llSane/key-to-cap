@@ -14,7 +14,19 @@ import {
 } from 'shared/ui/navigation-menu'
 import { cn } from 'shared/utils/classNames'
 
-const navData = {
+type NavDataName = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
+interface NavDataInfo {
+  categoryHref: string
+  previewImageSrc: StaticImageData
+  previewImageText: string
+  products: {
+    productHref: string
+    title: string
+    description: string
+  }[]
+}
+
+const navData: Record<NavDataName, NavDataInfo> = {
   'Keyboards': {
     categoryHref: '/categories/keyboards',
     previewImageSrc: keyboardPreview,
@@ -114,7 +126,12 @@ const Nav = () => {
             { categoryHref, previewImageSrc, previewImageText, products }
           ]) => (
             <NavigationMenuItem key={categoryName}>
-              <NavigationMenuTrigger>{categoryName}</NavigationMenuTrigger>
+              {/* TODO get rid of button inside link */}
+              <Link href={categoryHref}>
+                <NavigationMenuTrigger>
+                  {categoryName}
+                </NavigationMenuTrigger>
+              </Link>
               <NavigationMenuContent>
                 <NavItemContent
                   categoryHref={categoryHref}
