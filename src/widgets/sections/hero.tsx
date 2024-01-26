@@ -1,7 +1,7 @@
-import { inter } from 'shared/styles/fonts'
-import SmallKeyboard from 'shared/ui/3d/small-keyboard'
-import { Button } from 'shared/ui/buttons/button'
-import { cn } from 'shared/utils/classNames'
+import { inter } from '@/shared/styles/fonts'
+import SmallKeyboard from '@/shared/ui/3d/small-keyboard'
+import { Button } from '@/shared/ui/buttons/button'
+import { cn } from '@/shared/utils/classNames'
 
 const Hero = () => {
   return (

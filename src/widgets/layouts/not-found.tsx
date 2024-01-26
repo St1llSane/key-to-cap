@@ -1,7 +1,7 @@
-import { inter } from 'shared/styles/fonts'
-import LinkButton from 'shared/ui/links/link'
-import Logo from 'shared/ui/links/logo'
-import { cn } from 'shared/utils/classNames'
+import { inter } from '@/shared/styles/fonts'
+import LinkButton from '@/shared/ui/links/link'
+import Logo from '@/shared/ui/links/logo'
+import { cn } from '@/shared/utils/classNames'
 
 const NotFound = () => {
   return (

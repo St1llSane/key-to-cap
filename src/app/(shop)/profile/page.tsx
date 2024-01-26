@@ -1,1 +1,1 @@
-export { default } from 'pages/(shop)/profile/profile'
+export { default } from '@/pages/(shop)/profile/profile'

@@ -1,9 +1,7 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { signInSchema } from 'shared/schemas/sign-in-schema'
-import { Button } from 'shared/ui/buttons/button'
+import { signInSchema } from '@/shared/schemas/sign-in-schema'
+import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
   FormControl,
@@ -11,10 +9,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage
-} from 'shared/ui/forms/form'
-import { Input } from 'shared/ui/inputs/input'
-import PasswordInput from 'shared/ui/inputs/password-input'
-import LinkButton from 'shared/ui/links/link'
+} from '@/shared/ui/forms/form'
+import { Input } from '@/shared/ui/inputs/input'
+import PasswordInput from '@/shared/ui/inputs/password-input'
+import LinkButton from '@/shared/ui/links/link'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import AuthWithProviders from './auth-with-providers'
 

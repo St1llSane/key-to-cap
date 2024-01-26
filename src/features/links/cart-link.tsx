@@ -1,6 +1,6 @@
+import LinkButton from '@/shared/ui/links/link'
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
-import LinkButton from 'shared/ui/links/link'
 
 const CartLink = () => {
   return (

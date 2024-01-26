@@ -1,9 +1,6 @@
 'use client'
 
-import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
-import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
-import { inter } from 'shared/styles/fonts'
+import { inter } from '@/shared/styles/fonts'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,8 +8,11 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger
-} from 'shared/ui/navigation-menu'
-import { cn } from 'shared/utils/classNames'
+} from '@/shared/ui/navigation-menu'
+import { cn } from '@/shared/utils/classNames'
+import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
+import Image, { StaticImageData } from 'next/image'
+import Link from 'next/link'
 
 type NavDataName = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
 interface NavDataInfo {

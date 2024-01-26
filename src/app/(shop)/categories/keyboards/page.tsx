@@ -1,1 +1,1 @@
-export { default } from 'pages/(shop)/categories/keyboards/keyboards'
+export { default } from '@/pages/(shop)/categories/keyboards/keyboards'

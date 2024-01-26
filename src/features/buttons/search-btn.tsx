@@ -1,5 +1,5 @@
+import { Button } from '@/shared/ui/buttons/button'
 import { Search } from 'lucide-react'
-import { Button } from 'shared/ui/buttons/button'
 
 const SearchBtn = () => {
   return (

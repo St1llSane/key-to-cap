@@ -1,8 +1,8 @@
-import Hero from 'widgets/sections/hero'
+import Hero from '@/widgets/sections/hero'
 
 const Home = () => {
   return (
-    <main>
+    <main data-testid='home-page'>
       <Hero />
     </main>
   )

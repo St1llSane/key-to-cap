@@ -1,6 +1,6 @@
+import { cn } from '@/shared/utils/classNames'
 import { Eye, EyeOff } from 'lucide-react'
 import React, { useState } from 'react'
-import { cn } from 'shared/utils/classNames'
 import { Button } from '../buttons/button'
 import { Input, type InputProps } from './input'
 

@@ -1,1 +1,1 @@
-export { default } from 'widgets/layouts/not-found'
+export { default } from '@/widgets/layouts/not-found'

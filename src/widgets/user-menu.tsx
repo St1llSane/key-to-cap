@@ -1,6 +1,6 @@
-import SearchBtn from 'features/buttons/search-btn'
-import CartLink from 'features/links/cart-link'
-import ProfileLink from 'features/links/profile-link'
+import SearchBtn from '@/features/buttons/search-btn'
+import CartLink from '@/features/links/cart-link'
+import ProfileLink from '@/features/links/profile-link'
 
 const UserMenu = () => {
   return (

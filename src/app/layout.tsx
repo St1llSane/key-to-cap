@@ -1,1 +1,1 @@
-export { default } from 'widgets/layouts/root-layout'
+export { default } from '@/widgets/layouts/root-layout'

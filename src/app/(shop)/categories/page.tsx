@@ -1,1 +1,1 @@
-export { default } from 'pages/(shop)/categories/categories'
+export { default } from '@/pages/(shop)/categories/categories'

@@ -1,7 +1,7 @@
+import { inter } from '@/shared/styles/fonts'
+import { cn } from '@/shared/utils/classNames'
 import Link from 'next/link'
 import React from 'react'
-import { inter } from 'shared/styles/fonts'
-import { cn } from 'shared/utils/classNames'
 
 interface LogoProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}

@@ -1,7 +1,7 @@
 'use client'
 
+import LinkButton from '@/shared/ui/links/link'
 import { User2 } from 'lucide-react'
-import LinkButton from 'shared/ui/links/link'
 
 const ProfileLink = () => {
   const isUserAuth = false

@@ -1,7 +1,7 @@
-import Nav from 'features/nav'
-import Logo from 'shared/ui/links/logo'
-import Container from 'widgets/layouts/container'
-import UserMenu from 'widgets/user-menu'
+import Nav from '@/features/nav'
+import Logo from '@/shared/ui/links/logo'
+import Container from '@/widgets/layouts/container'
+import UserMenu from '@/widgets/user-menu'
 
 const Header = () => {
   return (
