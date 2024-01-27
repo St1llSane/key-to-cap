@@ -1,5 +1,6 @@
 'use client'
 
+import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
 import { inter } from '@/shared/styles/fonts'
 import {
   NavigationMenu,
@@ -10,7 +11,6 @@ import {
   NavigationMenuTrigger
 } from '@/shared/ui/navigation-menu'
 import { cn } from '@/shared/utils/classNames'
-import keyboardPreview from 'assets/categories_previews/keyboard_preview.webp'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 

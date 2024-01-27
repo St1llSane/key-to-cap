@@ -1,6 +1,6 @@
+import '@/app/main.css'
 import { jost } from '@/shared/styles/fonts'
 import { cn } from '@/shared/utils/classNames'
-import 'app/main.css'
 import Providers from './providers'
 
 export default function RootLayout({

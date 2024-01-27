@@ -14,6 +14,7 @@ const ProfileLink = () => {
       Icon={
         <User2 className='text-primary' size={20} strokeWidth={1.75} />
       }
+      data-testid='profile-link'
     />
   )
 }

@@ -24,7 +24,8 @@ const NotFound = () => {
         </h3>
         <LinkButton
           className='mt-6 underline underline-offset-8'
-          variant='underlined'
+          variant='underline'
+          size='unset'
           href='/'
         >
           Return to Homepage
