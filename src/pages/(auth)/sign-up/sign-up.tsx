@@ -1,6 +1,6 @@
-import SignUpForm from '@/features/forms/sign-up-form'
+import keyboard from '@/assets/keyboards/varmilo/Varmilo_Summit_R1_87/Varmilo_Summit_R1_87_4.webp'
+import SignUpForm from '@/features/forms/sign-up-form/sign-up-form'
 import Logo from '@/shared/ui/links/logo'
-import keyboard from 'assets/keyboards/varmilo/Varmilo_Summit_R1_87/Varmilo_Summit_R1_87_4.webp'
 import Image from 'next/image'
 
 const SignUp = () => {

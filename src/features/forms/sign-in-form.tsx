@@ -1,6 +1,6 @@
 'use client'
 
-import { signInSchema } from '@/shared/schemas/sign-in-schema'
+import { signInSchema } from '@/features/forms/schemas/sign-in-schema'
 import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
@@ -16,7 +16,7 @@ import LinkButton from '@/shared/ui/links/link'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import AuthWithProviders from './auth-with-providers'
+import AuthWithServices from './auth-with-services'
 
 export interface SignInFormInputs {
   email: string
@@ -83,17 +83,17 @@ const SignInForm = () => {
           </span>
           <span className='h-[1px] w-full bg-muted' />
         </div>
-        <AuthWithProviders />
+        <AuthWithServices />
       </div>
       <div className='flex items-center justify-between gap-x-2'>
         <span className='flex gap-x-1.5 align-baseline'>
           Don&apos;t have an account?{' '}
-          <LinkButton variant='underlined' size='unset' href='/sign-up'>
+          <LinkButton variant='underline' size='unset' href='/sign-up'>
             Sign up
           </LinkButton>
         </span>
         <LinkButton
-          variant='underlined'
+          variant='underline'
           size='unset'
           href='/sign-in/reset-password'
         >

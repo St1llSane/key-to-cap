@@ -20,7 +20,7 @@ const providers = [
   }
 ]
 
-const AuthWithProviders = React.forwardRef<
+const AuthWithServices = React.forwardRef<
   HTMLButtonElement,
   SignInWithProvidersPros
 >(({ ...props }: SignInWithProvidersPros, ref) => {
@@ -41,6 +41,6 @@ const AuthWithProviders = React.forwardRef<
     </div>
   )
 })
-AuthWithProviders.displayName = 'AuthWithProviders'
+AuthWithServices.displayName = 'AuthWithServices'
 
-export default AuthWithProviders
+export default AuthWithServices
