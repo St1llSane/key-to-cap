@@ -1,6 +1,7 @@
 'use client'
 
-import { signInSchema } from '@/features/forms/schemas/sign-in-schema'
+import AuthWithServices from '@/features/forms/auth-with-services'
+import { signInFormSchema } from '@/features/forms/sign-in-form/sign-in-form.schema'
 import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
@@ -14,9 +15,12 @@ import { Input } from '@/shared/ui/inputs/input'
 import PasswordInput from '@/shared/ui/inputs/password-input'
 import LinkButton from '@/shared/ui/links/link'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import AuthWithServices from './auth-with-services'
 
 export interface SignInFormInputs {
   email: string
@@ -24,16 +28,45 @@ export interface SignInFormInputs {
 }
 
 const SignInForm = () => {
-  const form = useForm<z.infer<typeof signInSchema>>({
-    resolver: zodResolver(signInSchema),
+  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
+
+  const form = useForm<z.infer<typeof signInFormSchema>>({
+    resolver: zodResolver(signInFormSchema),
     defaultValues: {
       email: '',
       password: ''
     }
   })
 
-  function onSubmit(values: z.infer<typeof signInSchema>) {
-    console.log(values)
+  const signIn = async () => {
+    startTransition(async () => {
+      try {
+        const { email, password } = form.getValues()
+
+        const res = await axios.get(
+          `${process.env.HOST}/users/${email}/${password}`
+        )
+
+        return res.data
+      } catch (error) {
+        console.log('error', error)
+      }
+    })
+  }
+
+  const signInMutation = useMutation({
+    mutationFn: signIn,
+    onSuccess: () => {
+      router.push('/profile')
+    },
+    onError: (error) => {
+      console.log('error', error)
+    }
+  })
+
+  const onSubmit = () => {
+    signInMutation.mutate()
   }
 
   return (
@@ -70,8 +103,12 @@ const SignInForm = () => {
               </FormItem>
             )}
           />
-          <Button className='mt-3 w-full' type='submit'>
-            Submit
+          <Button
+            className='mt-3 w-full'
+            type='submit'
+            disabled={isPending}
+          >
+            {isPending ? 'Pending...' : 'Submit'}
           </Button>
         </form>
       </Form>
@@ -79,7 +116,7 @@ const SignInForm = () => {
         <div className='flex items-center justify-between gap-x-2'>
           <span className='h-[1px] w-full bg-muted' />
           <span className='whitespace-nowrap text-xs uppercase tracking-wide text-muted-foreground'>
-            OR CONTINUE WITH PROVIDERS BELOW
+            OR CONTINUE WITH SERVICES BELOW
           </span>
           <span className='h-[1px] w-full bg-muted' />
         </div>
@@ -88,14 +125,18 @@ const SignInForm = () => {
       <div className='flex items-center justify-between gap-x-2'>
         <span className='flex gap-x-1.5 align-baseline'>
           Don&apos;t have an account?{' '}
-          <LinkButton variant='underline' size='unset' href='/sign-up'>
+          <LinkButton
+            variant='underline'
+            size='unset'
+            href='/auth/sign-up'
+          >
             Sign up
           </LinkButton>
         </span>
         <LinkButton
           variant='underline'
           size='unset'
-          href='/sign-in/reset-password'
+          href='auth/reset-password'
         >
           Reset password
         </LinkButton>

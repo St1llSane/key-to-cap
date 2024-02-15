@@ -1,5 +1,5 @@
 import keyboard from '@/assets/keyboards/varmilo/Varmilo_Summit_R1_87/Varmilo_Summit_R1_87_4.webp'
-import SignInForm from '@/features/forms/sign-in-form'
+import SignInForm from '@/features/forms/sign-in-form/sign-in-form'
 import Logo from '@/shared/ui/links/logo'
 import Image from 'next/image'
 
