@@ -1,4 +1,4 @@
-import Nav from '@/features/nav'
+import Nav from '@/features/nav/nav'
 import Logo from '@/shared/ui/links/logo'
 import Container from '@/widgets/layouts/container'
 import UserMenu from '@/widgets/user-menu'

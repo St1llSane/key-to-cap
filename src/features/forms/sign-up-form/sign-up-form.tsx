@@ -2,6 +2,7 @@
 
 import AuthWithServices from '@/features/forms/auth-with-services'
 import { signUpFormSchema } from '@/features/forms/sign-up-form/sign-up-form.schema'
+import { QueryKey } from '@/shared/types/enums'
 import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
@@ -36,7 +37,8 @@ const SignUpForm = () => {
   })
 
   const { mutateAsync: signUpMutate, isPending } = useSignUp(
-    form.getValues()
+    form.getValues(),
+    QueryKey.users
   )
 
   const onSubmit = () => {

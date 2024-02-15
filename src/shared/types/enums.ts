@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
 export enum QueryKey {
-  users = 'users'
+  users = 'users',
+  products = 'products'
 }

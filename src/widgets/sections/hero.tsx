@@ -6,7 +6,7 @@ import { cn } from '@/shared/utils/classNames'
 const Hero = () => {
   return (
     <section className='grid h-[calc(100vh_-_80px)] grid-cols-[600px_1fr] place-content-center items-center gap-10'>
-      <div className='relative z-10'>
+      <div>
         <h1 className='text-xl'>KEYCAP. store</h1>
         <p
           className={cn(

@@ -1,6 +1,5 @@
 'use client'
 
-import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
 import { inter } from '@/shared/styles/fonts'
 import {
   NavigationMenu,
@@ -13,110 +12,13 @@ import {
 import { cn } from '@/shared/utils/classNames'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
-
-type NavDataName = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
-interface NavDataInfo {
-  categoryHref: string
-  previewImageSrc: StaticImageData
-  previewImageText: string
-  products: {
-    productHref: string
-    title: string
-    description: string
-  }[]
-}
-
-const navData: Record<NavDataName, NavDataInfo> = {
-  'Keyboards': {
-    categoryHref: '/categories/keyboards',
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Keyboards',
-    products: [
-      {
-        productHref: '/',
-        title: 'Keyboard 1',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keyboard 2',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keyboard 3',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keyboard 4',
-        description: 'fdslfldslaflsd'
-      }
-    ]
-  },
-  'Mouses': {
-    categoryHref: '/categories/mouses',
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Mouses',
-    products: [
-      {
-        productHref: '/',
-        title: 'Mouses 1',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Mouses 2',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Mouses 3',
-        description: 'fdslfldslaflsd'
-      }
-    ]
-  },
-  'Mouse pads': {
-    categoryHref: '/categories/mouse-pads',
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Mouse pads',
-    products: [
-      { productHref: '/', title: 'Pads 1', description: 'fdslfldslaflsd' },
-      { productHref: '/', title: 'Pads 2', description: 'fdslfldslaflsd' },
-      { productHref: '/', title: 'Pads 3', description: 'fdslfldslaflsd' },
-      { productHref: '/', title: 'Pads 4', description: 'fdslfldslaflsd' }
-    ]
-  },
-  'Keycaps': {
-    categoryHref: '/categories/keycaps',
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Keycaps',
-    products: [
-      {
-        productHref: '/',
-        title: 'Keycaps 1',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keycaps 2',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keycaps 3',
-        description: 'fdslfldslaflsd'
-      },
-      {
-        productHref: '/',
-        title: 'Keycaps 4',
-        description: 'fdslfldslaflsd'
-      }
-    ]
-  }
-}
+import { useGetProducts } from './api/useGetProducts'
+import { navData } from './constants/constants'
 
 const Nav = () => {
+  const { data } = useGetProducts()
+  console.log('🚀 ~ Nav ~ data:', data)
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -162,7 +64,7 @@ const NavItemContent = ({
   previewImageSrc: StaticImageData
   previewImageText: string
   categoryName: string
-  products: { productHref: string; title: string; description: string }[]
+  products: { productHref: string; name: string; description: string }[]
 }) => {
   return (
     <div className='flex h-64 max-w-[510px] justify-between gap-4 overflow-hidden'>
@@ -191,9 +93,9 @@ const NavItemContent = ({
           <Link
             className='flex h-full flex-col items-start justify-center gap-[2px] rounded-md px-3 transition-colors hover:bg-accent'
             href={product.productHref}
-            key={product.title}
+            key={product.name}
           >
-            <h4 className='font-medium'>{product.title}</h4>
+            <h4 className='font-medium'>{product.name}</h4>
             <p className='text-sm text-muted-foreground'>
               {product.description}
             </p>

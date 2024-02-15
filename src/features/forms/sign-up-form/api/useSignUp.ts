@@ -1,11 +1,15 @@
 import { axiosInstance } from '@/shared/api/axiosInstance'
-import { QueryKey } from '@/shared/types/enums'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
 import { FieldValues } from 'react-hook-form'
 
-export const useSignUp = (formValues: FieldValues) => {
+export const useSignUp = (
+  formValues: FieldValues,
+  // TODO: think about need it or not
+  // queryKey: (typeof QueryKey)['users']
+  queryKey: string
+) => {
   const queryClient = useQueryClient()
   const router = useRouter()
 
@@ -23,7 +27,8 @@ export const useSignUp = (formValues: FieldValues) => {
     mutationFn: signUp,
     onSuccess: () => {
       router.push('/profile')
-      queryClient.invalidateQueries({ queryKey: [QueryKey.users] })
+      // TODO: maybe dont need?
+      queryClient.invalidateQueries({ queryKey: [queryKey] })
     },
     onError: (error) => {
       console.log('error', error)
