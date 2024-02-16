@@ -38,7 +38,7 @@ const SignUpForm = () => {
 
   const { mutateAsync: signUpMutate, isPending } = useSignUp(
     form.getValues(),
-    QueryKey.users
+    QueryKey.Users
   )
 
   const onSubmit = () => {
