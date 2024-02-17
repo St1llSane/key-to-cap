@@ -97,7 +97,7 @@ const SignInForm = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <PasswordInput {...field} />
+                  <PasswordInput isShowEye {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

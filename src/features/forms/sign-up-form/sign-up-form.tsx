@@ -2,7 +2,6 @@
 
 import AuthWithServices from '@/features/forms/auth-with-services'
 import { signUpFormSchema } from '@/features/forms/sign-up-form/sign-up-form.schema'
-import { QueryKey } from '@/shared/types/enums'
 import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
@@ -26,8 +25,10 @@ export interface SignInFormInputs {
   confirmPassword: string
 }
 
+export type fields = z.infer<typeof signUpFormSchema>
+
 const SignUpForm = () => {
-  const form = useForm<z.infer<typeof signUpFormSchema>>({
+  const form = useForm<fields>({
     resolver: zodResolver(signUpFormSchema),
     defaultValues: {
       email: '',
@@ -38,10 +39,12 @@ const SignUpForm = () => {
 
   const { mutateAsync: signUpMutate, isPending } = useSignUp(
     form.getValues(),
-    QueryKey.Users
+    form.reset
   )
 
   const onSubmit = () => {
+    if (isPending) return
+
     signUpMutate()
   }
 
@@ -73,7 +76,7 @@ const SignUpForm = () => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <PasswordInput {...field} />
+                  <PasswordInput isShowEye {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

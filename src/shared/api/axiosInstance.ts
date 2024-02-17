@@ -9,11 +9,16 @@ type ReqBody =
 export const axiosInstance = async (
   method: ReqMethod,
   url: string,
-  body?: ReqBody
+  body?: ReqBody,
+  withCredentials?: boolean
 ) => {
   return await axios({
     method,
     url: `${process.env.NEXT_PUBLIC_SERVER_HOST}/${url}`,
-    data: body
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: body,
+    withCredentials
   })
 }

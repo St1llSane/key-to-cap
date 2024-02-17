@@ -1,21 +1,24 @@
 import { axiosInstance } from '@/shared/api/axiosInstance'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
-import { FieldValues } from 'react-hook-form'
+import { FieldValues, UseFormReset } from 'react-hook-form'
+import { fields } from '../sign-up-form'
 
 export const useSignUp = (
   formValues: FieldValues,
-  // TODO: think about need it or not
-  // queryKey: (typeof QueryKey)['users']
-  queryKey: string
+  reset: UseFormReset<fields>
 ) => {
-  const queryClient = useQueryClient()
   const router = useRouter()
 
   const signUp = async () => {
     try {
-      const data = await axiosInstance('post', 'users/', formValues)
+      const data = await axiosInstance(
+        'post',
+        'auth/register/',
+        formValues,
+        true
+      )
 
       return data
     } catch (error) {
@@ -23,12 +26,11 @@ export const useSignUp = (
     }
   }
 
-  const { mutateAsync, isPending, isSuccess } = useMutation({
+  const { mutateAsync, isPending } = useMutation({
     mutationFn: signUp,
     onSuccess: () => {
+      reset()
       router.push('/profile')
-      // TODO: maybe dont need?
-      queryClient.invalidateQueries({ queryKey: [queryKey] })
     },
     onError: (error) => {
       console.log('error', error)
@@ -36,6 +38,6 @@ export const useSignUp = (
   })
 
   return useMemo(() => {
-    return { mutateAsync, isPending, isSuccess }
-  }, [mutateAsync, isPending, isSuccess])
+    return { mutateAsync, isPending }
+  }, [mutateAsync, isPending])
 }

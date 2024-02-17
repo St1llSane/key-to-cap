@@ -4,21 +4,28 @@ import React, { useState } from 'react'
 import { Button } from '../buttons/button'
 import { Input, type InputProps } from './input'
 
-const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ ...props }, ref) => {
-    const [showPassword, setShowPassword] = useState(false)
+interface PasswordInputProps extends InputProps {
+  isShowEye?: boolean
+}
 
-    return (
-      <div className='relative'>
-        <Input
-          className={cn('pr-11', {
-            'font-sans': !showPassword && props.value !== ''
-          })}
-          placeholder='Aa123456'
-          type={showPassword ? 'text' : 'password'}
-          ref={ref}
-          {...props}
-        />
+const PasswordInput = React.forwardRef<
+  HTMLInputElement,
+  PasswordInputProps
+>(({ isShowEye, ...props }, ref) => {
+  const [showPassword, setShowPassword] = useState(false)
+
+  return (
+    <div className='relative'>
+      <Input
+        className={cn('pr-11', {
+          'font-sans': !showPassword && props.value !== ''
+        })}
+        placeholder='Aa123456'
+        type={showPassword ? 'text' : 'password'}
+        ref={ref}
+        {...props}
+      />
+      {isShowEye && (
         <Button
           type='button'
           variant='ghost'
@@ -37,10 +44,10 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(
             <Eye className='text-primary' size={20} strokeWidth={1.75} />
           )}
         </Button>
-      </div>
-    )
-  }
-)
+      )}
+    </div>
+  )
+})
 PasswordInput.displayName = 'PasswordInput'
 
 export default PasswordInput
