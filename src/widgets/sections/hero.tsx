@@ -1,3 +1,6 @@
+'use client'
+
+import { refreshTokens } from '@/shared/api/refreshTokens'
 import { inter } from '@/shared/styles/fonts'
 import SmallKeyboard from '@/shared/ui/3d/small-keyboard'
 import { Button } from '@/shared/ui/buttons/button'
@@ -17,7 +20,9 @@ const Hero = () => {
           <span className='tracking-[0.01em]'>One glance is enough,</span>
           <span className='tracking-[0.01em]'>one press - isn&apos;t</span>
         </p>
-        <Button className='mt-8 w-fit'>Show me!</Button>
+        <Button className='mt-8 w-fit' onClick={refreshTokens}>
+          Show me!
+        </Button>
       </div>
       <div className='relative grid justify-end'>
         <SmallKeyboard />

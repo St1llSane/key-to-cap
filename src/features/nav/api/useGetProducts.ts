@@ -11,7 +11,11 @@ export const useGetProducts = () => {
 
   const getProducts = async () => {
     try {
-      const { data } = await axiosInstance('get', 'products/')
+      const data = await axiosInstance({
+        method: 'get',
+        url: 'products/',
+        withCredentials: true
+      })
 
       return data
     } catch (error) {
@@ -24,19 +28,24 @@ export const useGetProducts = () => {
     queryFn: getProducts
   })
 
+  const objectKeys = <Obj extends object>(obj: Obj): (keyof Obj)[] => {
+    return Object.keys(obj) as (keyof Obj)[]
+  }
+
   useEffect(() => {
     if (isSuccess) {
       // TODO: find an options to typed it more carefully
-      const filteredNavData: Record<NavCategory, NavDataInfo> =
-        Object.keys(navData).reduce(
-          (acc, key) => {
-            acc[key as NavCategory] = navData[key as NavCategory]
-            acc[key as NavCategory].products = data[key as NavCategory]
+      const filteredNavData: Record<NavCategory, NavDataInfo> = objectKeys(
+        navData
+      ).reduce(
+        (acc, key) => {
+          acc[key] = navData[key]
+          acc[key].products = data[key]
 
-            return acc
-          },
-          {} as Record<NavCategory, NavDataInfo>
-        )
+          return acc
+        },
+        {} as Record<NavCategory, NavDataInfo>
+      )
 
       setFilteredNavData(filteredNavData)
     }

@@ -13,12 +13,12 @@ export const useSignUp = (
 
   const signUp = async () => {
     try {
-      const data = await axiosInstance(
-        'post',
-        'auth/register/',
-        formValues,
-        true
-      )
+      const data = await axiosInstance({
+        method: 'post',
+        url: 'auth/register/',
+        body: formValues,
+        withCredentials: true
+      })
 
       return data
     } catch (error) {
