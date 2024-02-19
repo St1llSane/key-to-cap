@@ -2,11 +2,11 @@ import { axiosInstance } from '@/shared/api/axiosInstance'
 import { QueryKey } from '@/shared/types/enums'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-import { NavCategory, NavDataInfo, navData } from '../constants/constants'
+import { NavCategory, NavData, navData } from '../constants/constants'
 
 export const useGetProducts = () => {
   const [filteredNavData, setFilteredNavData] = useState<{
-    [k: string]: NavDataInfo
+    [k: string]: NavData
   } | null>(null)
 
   const getProducts = async () => {
@@ -34,8 +34,7 @@ export const useGetProducts = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      // TODO: find an options to typed it more carefully
-      const filteredNavData: Record<NavCategory, NavDataInfo> = objectKeys(
+      const filteredNavData: Record<NavCategory, NavData> = objectKeys(
         navData
       ).reduce(
         (acc, key) => {
@@ -44,7 +43,7 @@ export const useGetProducts = () => {
 
           return acc
         },
-        {} as Record<NavCategory, NavDataInfo>
+        {} as Record<NavCategory, NavData>
       )
 
       setFilteredNavData(filteredNavData)

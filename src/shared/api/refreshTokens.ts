@@ -12,7 +12,7 @@ export const refreshTokens = async () => {
       throw new Error(data.statusText)
     }
 
-    return data.data.accessTokenExpireTime
+    return data.data.access_token_expire_time
   } catch (error) {
     console.log('error', error)
   }

@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-// import { refreshTokens } from './refreshTokens'
+import { refreshTokens } from './refreshTokens'
 
 type ReqMethod = 'get' | 'post'
 type ReqBody =
@@ -18,14 +17,18 @@ export const axiosInstance = async ({
   body?: ReqBody
   withCredentials?: boolean
 }) => {
-  // const time = Number(localStorage.getItem('accessTokenExpireTime'))
+  // TODO: maybe need to refactor to cookie?
+  const time = Number(localStorage.getItem('access_token_expire_time'))
 
   try {
-    // if (new Date().getTime() > time) {
-    //   const accessTokenExpireTime = await refreshTokens()
+    if (new Date().getTime() > time) {
+      const access_token_expire_time = await refreshTokens()
 
-    //   localStorage.setItem('accessTokenExpireTime', accessTokenExpireTime)
-    // }
+      localStorage.setItem(
+        'access_token_expire_time',
+        access_token_expire_time
+      )
+    }
 
     const { data } = await axios({
       method,
@@ -37,10 +40,10 @@ export const axiosInstance = async ({
       withCredentials
     })
 
-    if (data.accessTokenExpireTime) {
+    if (data.access_token_expire_time) {
       localStorage.setItem(
-        'accessTokenExpireTime',
-        data.accessTokenExpireTime
+        'access_token_expire_time',
+        data.access_token_expire_time
       )
     }
 

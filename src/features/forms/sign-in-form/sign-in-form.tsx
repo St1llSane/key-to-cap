@@ -15,23 +15,20 @@ import { Input } from '@/shared/ui/inputs/input'
 import PasswordInput from '@/shared/ui/inputs/password-input'
 import LinkButton from '@/shared/ui/links/link'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
-import axios from 'axios'
-import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
+import { BaseSyntheticEvent } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
+import { useSignIn } from './api/useSignIn'
 
 export interface SignInFormInputs {
   email: string
   password: string
 }
 
-const SignInForm = () => {
-  const [isPending, startTransition] = useTransition()
-  const router = useRouter()
+export type fields = z.infer<typeof signInFormSchema>
 
-  const form = useForm<z.infer<typeof signInFormSchema>>({
+const SignInForm = () => {
+  const form = useForm<fields>({
     resolver: zodResolver(signInFormSchema),
     defaultValues: {
       email: '',
@@ -39,34 +36,15 @@ const SignInForm = () => {
     }
   })
 
-  const signIn = async () => {
-    startTransition(async () => {
-      try {
-        const { email, password } = form.getValues()
-
-        const res = await axios.get(
-          `${process.env.HOST}/users/${email}/${password}`
-        )
-
-        return res.data
-      } catch (error) {
-        console.log('error', error)
-      }
-    })
-  }
-
-  const signInMutation = useMutation({
-    mutationFn: signIn,
-    onSuccess: () => {
-      router.push('/profile')
-    },
-    onError: (error) => {
-      console.log('error', error)
-    }
-  })
+  const { mutateAsync: signUpMutate, isPending } = useSignIn(
+    form.getValues(),
+    form.reset
+  )
 
   const onSubmit = () => {
-    signInMutation.mutate()
+    if (isPending) return
+
+    signUpMutate()
   }
 
   return (
@@ -75,7 +53,10 @@ const SignInForm = () => {
       <Form {...form}>
         <form
           className='flex flex-col gap-y-4'
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={(e: BaseSyntheticEvent, ...args) => {
+            e.preventDefault()
+            form.handleSubmit(onSubmit)(...args)
+          }}
         >
           <FormField
             control={form.control}

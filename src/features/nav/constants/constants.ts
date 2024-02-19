@@ -12,7 +12,7 @@ export type NavDataProducts =
       categoryId: number
     }[]
   | []
-export interface NavDataInfo {
+export interface NavData {
   previewImageSrc: StaticImageData
   previewImageText: string
   products: NavDataProducts
@@ -25,7 +25,7 @@ export const navCategories: NavCategory[] = [
   'Keycaps'
 ]
 
-export const navData: Record<NavCategory, NavDataInfo> = {
+export const navData: Record<NavCategory, NavData> = {
   'Keyboards': {
     previewImageSrc: keyboardPreview,
     previewImageText: 'Keyboards',
