@@ -10,22 +10,19 @@ export const useGetProducts = () => {
   } | null>(null)
 
   const getProducts = async () => {
-    try {
-      const data = await axiosInstance({
-        method: 'get',
-        url: 'products/',
-        withCredentials: true
-      })
+    const data = await axiosInstance({
+      method: 'get',
+      url: 'products/',
+      withCredentials: true
+    })
 
-      return data
-    } catch (error) {
-      console.log('error', error)
-    }
+    return data
   }
 
   const { data, isPending, isSuccess } = useQuery({
     queryKey: [QueryKey.Products],
-    queryFn: getProducts
+    queryFn: getProducts,
+    refetchOnWindowFocus: false
   })
 
   const objectKeys = <Obj extends object>(obj: Obj): (keyof Obj)[] => {

@@ -12,18 +12,14 @@ export const useSignIn = (
   const router = useRouter()
 
   const signIn = async () => {
-    try {
-      const data = await axiosInstance({
-        method: 'post',
-        url: 'auth/login/',
-        body: formValues,
-        withCredentials: true
-      })
+    const data = await axiosInstance({
+      method: 'post',
+      url: 'auth/sign-in/',
+      body: formValues,
+      withCredentials: true
+    })
 
-      return data
-    } catch (error) {
-      console.log('error', error)
-    }
+    return data
   }
 
   const { mutateAsync, isPending } = useMutation({

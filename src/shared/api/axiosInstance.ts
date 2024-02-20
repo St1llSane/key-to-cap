@@ -18,10 +18,12 @@ export const axiosInstance = async ({
   withCredentials?: boolean
 }) => {
   // TODO: maybe need to refactor to cookie?
+  // TODO: need to clean up LS after sign out
   const time = Number(localStorage.getItem('access_token_expire_time'))
 
   try {
-    if (new Date().getTime() > time) {
+    if (!!time && new Date().getTime() > time) {
+      // TODO: need to add error handler?
       const access_token_expire_time = await refreshTokens()
 
       localStorage.setItem(
@@ -37,7 +39,10 @@ export const axiosInstance = async ({
         'Content-Type': 'application/json'
       },
       data: body,
-      withCredentials
+      withCredentials,
+      validateStatus: (status) => {
+        return status >= 200 && status < 400
+      }
     })
 
     if (data.access_token_expire_time) {
@@ -50,7 +55,7 @@ export const axiosInstance = async ({
     return data
   } catch (error) {
     console.log('error', error)
-  }
 
-  return
+    throw error
+  }
 }

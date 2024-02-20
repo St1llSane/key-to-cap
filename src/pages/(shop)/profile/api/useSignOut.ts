@@ -2,20 +2,14 @@ import { axiosInstance } from '@/shared/api/axiosInstance'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
-import { FieldValues, UseFormReset } from 'react-hook-form'
-import { fields } from '../sign-up-form'
 
-export const useSignUp = (
-  formValues: FieldValues,
-  reset: UseFormReset<fields>
-) => {
+export const useSignOut = () => {
   const router = useRouter()
 
-  const signUp = async () => {
+  const signOut = async () => {
     const data = await axiosInstance({
       method: 'post',
-      url: 'auth/register/',
-      body: formValues,
+      url: 'sign-out/',
       withCredentials: true
     })
 
@@ -23,10 +17,10 @@ export const useSignUp = (
   }
 
   const { mutateAsync, isPending } = useMutation({
-    mutationFn: signUp,
+    mutationFn: signOut,
     onSuccess: () => {
-      reset()
-      router.push('/profile')
+      localStorage.removeItem('access_token_expire_time')
+      router.push('/')
     },
     onError: (error) => {
       console.log('error', error)
