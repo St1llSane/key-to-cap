@@ -1,18 +1,26 @@
 'use client'
 
-import { useSignOut } from './api/useSignOut'
+import { useIsUserAuth } from '@/shared/api/hooks/useIsUserAuth'
+import { useSignOut } from '@/shared/api/hooks/useSignOut'
 
 const Profile = () => {
-  const { mutateAsync: signOutMutate, isPending } = useSignOut()
+  const { isUserAuth, isPending: isUserAuthPending } = useIsUserAuth({
+    redirectTo: 'auth/sign-in/'
+  })
+
+  const { mutateAsync: signOutMutate, isPending: isSignOutMutatePending } =
+    useSignOut()
 
   const onClick = () => {
-    if (isPending) return
+    if (isSignOutMutatePending) return
 
     signOutMutate()
   }
 
+  if (isUserAuthPending || !isUserAuth) return <></>
+
   return (
-    <div>
+    <div className='min-h-[calc(100vh_-_80px)]'>
       Profile
       <button onClick={onClick}>Sign Out</button>
     </div>

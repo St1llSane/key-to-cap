@@ -1,15 +1,9 @@
-import axios from 'axios'
+import { instance } from './axiosInstance'
 
 export const refreshTokens = async () => {
-  const data = await axios({
-    method: 'post',
-    url: `${process.env.NEXT_PUBLIC_SERVER_HOST}/refresh/`,
-    withCredentials: true
-  })
+  const data = await instance.post('refresh/')
 
-  if (data.status === 401) {
-    throw new Error(data.statusText)
-  }
+  if (data.status === 401) throw new Error(data.statusText)
 
   return data.data.access_token_expire_time
 }

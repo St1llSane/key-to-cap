@@ -1,4 +1,4 @@
-import { axiosInstance } from '@/shared/api/axiosInstance'
+import { axiosWithRefresh } from '@/shared/api/axiosWithRefresh'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
@@ -7,10 +7,9 @@ export const useSignOut = () => {
   const router = useRouter()
 
   const signOut = async () => {
-    const data = await axiosInstance({
+    const data = await axiosWithRefresh({
       method: 'post',
-      url: 'sign-out/',
-      withCredentials: true
+      url: 'sign-out/'
     })
 
     return data

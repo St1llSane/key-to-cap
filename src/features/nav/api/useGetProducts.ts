@@ -1,5 +1,6 @@
-import { axiosInstance } from '@/shared/api/axiosInstance'
+import { axiosWithRefresh } from '@/shared/api/axiosWithRefresh'
 import { QueryKey } from '@/shared/types/enums'
+import { typeObjectKeys } from '@/shared/utils/typeObjectKeys'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
 import { NavCategory, NavData, navData } from '../constants/constants'
@@ -10,10 +11,9 @@ export const useGetProducts = () => {
   } | null>(null)
 
   const getProducts = async () => {
-    const data = await axiosInstance({
+    const data = await axiosWithRefresh({
       method: 'get',
-      url: 'products/',
-      withCredentials: true
+      url: 'products/'
     })
 
     return data
@@ -25,13 +25,9 @@ export const useGetProducts = () => {
     refetchOnWindowFocus: false
   })
 
-  const objectKeys = <Obj extends object>(obj: Obj): (keyof Obj)[] => {
-    return Object.keys(obj) as (keyof Obj)[]
-  }
-
   useEffect(() => {
     if (isSuccess) {
-      const filteredNavData: Record<NavCategory, NavData> = objectKeys(
+      const filteredNavData: Record<NavCategory, NavData> = typeObjectKeys(
         navData
       ).reduce(
         (acc, key) => {
