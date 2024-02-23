@@ -1,4 +1,4 @@
-import { axiosWithRefresh } from '@/shared/api/axiosWithRefresh'
+import { instance } from '@/shared/api/axiosInstance'
 import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
@@ -12,11 +12,7 @@ export const useSignUp = (
   const router = useRouter()
 
   const signUp = async () => {
-    const data = await axiosWithRefresh({
-      method: 'post',
-      url: 'auth/register/',
-      body: formValues
-    })
+    const { data } = await instance.post('auth/sign-up/', formValues)
 
     return data
   }

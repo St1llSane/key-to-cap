@@ -9,7 +9,7 @@ import {
   NavigationMenuTrigger
 } from '@/shared/ui/navigation-menu'
 import Link from 'next/link'
-import { useGetProducts } from './api/useGetProducts'
+import { useGetProducts } from '../../shared/api/hooks/useGetProducts'
 import { navCategories } from './constants/constants'
 import NavItemCard from './nav-item-card'
 

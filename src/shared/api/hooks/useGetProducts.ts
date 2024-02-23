@@ -1,9 +1,13 @@
-import { axiosWithRefresh } from '@/shared/api/axiosWithRefresh'
+import {
+  NavCategory,
+  NavData,
+  navData
+} from '@/features/nav/constants/constants'
 import { QueryKey } from '@/shared/types/enums'
 import { typeObjectKeys } from '@/shared/utils/typeObjectKeys'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
-import { NavCategory, NavData, navData } from '../constants/constants'
+import { instance } from '../axiosInstance'
 
 export const useGetProducts = () => {
   const [filteredNavData, setFilteredNavData] = useState<{
@@ -11,10 +15,7 @@ export const useGetProducts = () => {
   } | null>(null)
 
   const getProducts = async () => {
-    const data = await axiosWithRefresh({
-      method: 'get',
-      url: 'products/'
-    })
+    const { data } = await instance.get('products/')
 
     return data
   }
