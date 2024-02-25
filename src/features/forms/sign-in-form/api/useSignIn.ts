@@ -20,8 +20,8 @@ export const useSignIn = (
   const { mutateAsync, isPending } = useMutation({
     mutationFn: signIn,
     onSuccess: () => {
+      router.replace('/profile')
       reset()
-      router.push('/profile')
     },
     onError: (error) => {
       console.log('error', error)

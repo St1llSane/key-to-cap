@@ -7,15 +7,13 @@ export const useSignOut = () => {
   const router = useRouter()
 
   const signOut = async () => {
-    const { data } = await instance.get('sign-out/')
-
-    return data
+    await instance.post('sign-out/')
   }
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: signOut,
     onSuccess: () => {
-      router.push('/')
+      router.replace('/')
     },
     onError: (error) => {
       console.log('error', error)

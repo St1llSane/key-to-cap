@@ -2,6 +2,7 @@
 
 import AuthWithServices from '@/features/forms/auth-with-services'
 import { signUpFormSchema } from '@/features/forms/sign-up-form/sign-up-form.schema'
+import { Icons } from '@/shared/icons/Icons'
 import { Button } from '@/shared/ui/buttons/button'
 import {
   Form,
@@ -104,7 +105,7 @@ const SignUpForm = () => {
             type='submit'
             disabled={isPending}
           >
-            {isPending ? 'Pending...' : 'Submit'}
+            {isPending ? <Icons.spinner className='h-8 w-8' /> : 'Submit'}
           </Button>
         </form>
       </Form>
@@ -121,11 +122,7 @@ const SignUpForm = () => {
       <div className='flex items-center justify-between gap-x-2'>
         <span className='flex gap-x-1.5 align-baseline'>
           Already have an account?
-          <LinkButton
-            variant='underline'
-            size='unset'
-            href='/auth/sign-in'
-          >
+          <LinkButton variant='underline' size='unset' href='/sign-in'>
             Sign ip
           </LinkButton>
         </span>
