@@ -3,7 +3,7 @@ import {
   NavData,
   navData
 } from '@/features/nav/constants/constants'
-import { QueryKey } from '@/shared/types/enums'
+import { QueryKeys } from '@/shared/types/enums'
 import { typeObjectKeys } from '@/shared/utils/typeObjectKeys'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
@@ -21,8 +21,9 @@ export const useGetProducts = () => {
   }
 
   const { data, isPending, isSuccess } = useQuery({
-    queryKey: [QueryKey.Products],
+    queryKey: [QueryKeys.Products],
     queryFn: getProducts,
+    retry: 0,
     refetchOnWindowFocus: false
   })
 
