@@ -27,7 +27,7 @@
   "plugins": ["react", "prettier"],
   "rules": {
     "@typescript-eslint/quotes": [
-      "error",
+      "warn",
       "single",
       {
         "allowTemplateLiterals": true
@@ -39,6 +39,7 @@
     "react/jsx-key": 2,
     "react/no-find-dom-node": 2,
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-    "prettier/prettier": "error"
+    "prettier/prettier": "warn",
+    "max-lines": ["warn", { "max": 200 }]
   }
 }

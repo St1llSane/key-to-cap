@@ -1,7 +1,11 @@
 'use client'
 
-import AuthWithServices from '@/features/forms/auth-with-services'
-import { signUpFormSchema } from '@/features/forms/sign-up-form/sign-up-form.schema'
+import type { BaseSyntheticEvent } from 'react'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+
 import { Icons } from '@/shared/icons/Icons'
 import { Button } from '@/shared/ui/buttons/button'
 import {
@@ -15,10 +19,10 @@ import {
 import { Input } from '@/shared/ui/inputs/input'
 import PasswordInput from '@/shared/ui/inputs/password-input'
 import LinkButton from '@/shared/ui/links/link'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { BaseSyntheticEvent } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+
+import AuthWithServices from '@/features/forms/auth-with-services'
+import { signUpFormSchema } from '@/features/forms/sign-up-form/sign-up-form.schema'
+
 import { useSignUp } from './api/useSignUp'
 
 export interface SignInFormInputs {

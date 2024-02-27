@@ -1,7 +1,10 @@
-import SearchBtn from '@/features/buttons/search-btn'
-import LinkButton from '@/shared/ui/links/link'
-import { ShoppingCart, User2 } from 'lucide-react'
 import { cookies } from 'next/headers'
+
+import { ShoppingCart, User2 } from 'lucide-react'
+
+import LinkButton from '@/shared/ui/links/link'
+
+import SearchBtn from '@/features/buttons/search-btn'
 
 const UserMenu = () => {
   const isUserAuth = cookies().has('refresh_token')

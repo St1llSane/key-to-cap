@@ -1,7 +1,11 @@
 'use client'
 
-import AuthWithServices from '@/features/forms/auth-with-services'
-import { signInFormSchema } from '@/features/forms/sign-in-form/sign-in-form.schema'
+import type { BaseSyntheticEvent } from 'react'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as z from 'zod'
+
 import { Icons } from '@/shared/icons/Icons'
 import { Button } from '@/shared/ui/buttons/button'
 import {
@@ -15,10 +19,10 @@ import {
 import { Input } from '@/shared/ui/inputs/input'
 import PasswordInput from '@/shared/ui/inputs/password-input'
 import LinkButton from '@/shared/ui/links/link'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { BaseSyntheticEvent } from 'react'
-import { useForm } from 'react-hook-form'
-import * as z from 'zod'
+
+import AuthWithServices from '@/features/forms/auth-with-services'
+import { signInFormSchema } from '@/features/forms/sign-in-form/sign-in-form.schema'
+
 import { useSignIn } from './api/useSignIn'
 
 export interface SignInFormInputs {
@@ -97,7 +101,7 @@ const SignInForm = () => {
       <div className='flex flex-col gap-y-6'>
         <div className='flex items-center justify-between gap-x-2'>
           <span className='h-[1px] w-full bg-muted' />
-          <span className='whitespace-nowrap text-xs uppercase tracking-wide text-foreground'>
+          <span className='whitespace-nowrap bg-red-100 text-xs uppercase tracking-wide text-foreground'>
             OR CONTINUE WITH SERVICES BELOW
           </span>
           <span className='h-[1px] w-full bg-muted' />
