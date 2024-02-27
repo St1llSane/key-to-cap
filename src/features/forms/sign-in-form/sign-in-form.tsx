@@ -101,7 +101,7 @@ const SignInForm = () => {
       <div className='flex flex-col gap-y-6'>
         <div className='flex items-center justify-between gap-x-2'>
           <span className='h-[1px] w-full bg-muted' />
-          <span className='whitespace-nowrap bg-red-100 text-xs uppercase tracking-wide text-foreground'>
+          <span className='whitespace-nowrap text-xs uppercase tracking-wide text-foreground'>
             OR CONTINUE WITH SERVICES BELOW
           </span>
           <span className='h-[1px] w-full bg-muted' />

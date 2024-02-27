@@ -22,6 +22,15 @@ const inter = Inter({
   display: 'swap'
 })
 
+export const metadata = {
+  title: 'Rahul More',
+  description: 'A Frontend Developer Portfolio',
+  //line 5 to 8 is only addition to make in layout.js
+  icons: {
+    icon: '/images/rahul.png'
+  }
+}
+
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
