@@ -1,6 +1,9 @@
-import '@/app/main.css'
-import { cn } from '@/shared/utils/classNames'
 import { Inter, Jost } from 'next/font/google'
+
+import { cn } from '@/shared/utils/classNames'
+
+import '@/app/main.css'
+
 import Providers from './providers'
 
 interface RootLayoutProps {

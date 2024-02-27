@@ -1,8 +1,12 @@
-import { instance } from '@/shared/api/axiosInstance'
-import { useMutation } from '@tanstack/react-query'
-import { useRouter } from 'next/navigation'
 import { useMemo } from 'react'
+
+import { useRouter } from 'next/navigation'
+
+import { useMutation } from '@tanstack/react-query'
 import { FieldValues, UseFormReset } from 'react-hook-form'
+
+import { instance } from '@/shared/api/axiosInstance'
+
 import { fields } from '../sign-up-form'
 
 export const useSignUp = (

@@ -1,5 +1,6 @@
-import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
 import { StaticImageData } from 'next/image'
+
+import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
 
 export type NavCategory = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
 export type NavDataProducts =

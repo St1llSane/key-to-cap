@@ -1,5 +1,6 @@
-import Home from '@/pages/(shop)/home'
 import { render, screen } from '@testing-library/react'
+
+import Home from '@/pages/(shop)/home'
 
 test('Home page render', () => {
   render(<Home />)

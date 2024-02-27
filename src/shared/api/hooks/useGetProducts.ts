@@ -1,12 +1,16 @@
+import { useEffect, useState } from 'react'
+
+import { useQuery } from '@tanstack/react-query'
+
+import { QueryKeys } from '@/shared/types/enums'
+import { typeObjectKeys } from '@/shared/utils/typeObjectKeys'
+
 import {
   NavCategory,
   NavData,
   navData
 } from '@/features/nav/constants/constants'
-import { QueryKeys } from '@/shared/types/enums'
-import { typeObjectKeys } from '@/shared/utils/typeObjectKeys'
-import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
+
 import { instance } from '../axiosInstance'
 
 export const useGetProducts = () => {

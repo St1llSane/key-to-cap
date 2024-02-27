@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
+
 import { NavDataProducts } from './constants/constants'
 import NavItemCardProducts from './nav-item-card-products'
 

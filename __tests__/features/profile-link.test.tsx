@@ -1,7 +1,10 @@
-import ProfileLink from '@/features/links/profile-link'
-import Profile from '@/pages/(shop)/profile/profile'
-import UserMenu from '@/widgets/user-menu'
 import { fireEvent, render, screen } from '@testing-library/react'
+
+import UserMenu from '@/widgets/user-menu'
+
+import ProfileLink from '@/features/links/profile-link'
+
+import Profile from '@/pages/(shop)/profile/profile'
 
 // import { useRouter } from 'next/router'
 

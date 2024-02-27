@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+
 import { PrivateRoutes, PublicRoutes, Tokens } from './shared/types/enums'
 
 export const middleware = (request: NextRequest) => {

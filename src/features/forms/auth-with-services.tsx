@@ -1,6 +1,8 @@
-import { Button } from '@/shared/ui/buttons/button'
 import React from 'react'
+
 import { FaFacebookF, FaGoogle, FaLinkedinIn } from 'react-icons/fa'
+
+import { Button } from '@/shared/ui/buttons/button'
 
 interface SignInWithProvidersPros
   extends React.HTMLAttributes<HTMLDivElement> {}

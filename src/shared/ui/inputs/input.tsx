@@ -1,6 +1,8 @@
-import { cn } from '@/shared/utils/classNames'
-import { VariantProps, cva } from 'class-variance-authority'
 import * as React from 'react'
+
+import { VariantProps, cva } from 'class-variance-authority'
+
+import { cn } from '@/shared/utils/classNames'
 
 const inputVariants = cva(
   'flex w-full bg-background text-base placeholder:text-muted-foreground transition-colors',

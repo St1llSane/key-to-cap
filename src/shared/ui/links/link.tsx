@@ -1,9 +1,12 @@
-import { Button } from '@/shared/ui/buttons/button'
-import { buttonVariants } from '@/shared/ui/buttons/button'
+import type { ReactElement } from 'react'
+
+import Link from 'next/link'
+
 import { VariantProps } from 'class-variance-authority'
 import type { LucideIcon } from 'lucide-react'
-import Link from 'next/link'
-import type { ReactElement } from 'react'
+
+import { Button } from '@/shared/ui/buttons/button'
+import { buttonVariants } from '@/shared/ui/buttons/button'
 
 type LinkVariants = VariantProps<typeof buttonVariants>['variant']
 type LinkSizes = VariantProps<typeof buttonVariants>['size']
