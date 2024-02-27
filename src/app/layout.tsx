@@ -23,11 +23,15 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Rahul More',
-  description: 'A Frontend Developer Portfolio',
-  //line 5 to 8 is only addition to make in layout.js
+  title: 'KEYCAP - Keyboards and computer attributes shop',
+  description: 'Keyboards and computer attributes',
   icons: {
-    icon: '/images/rahul.png'
+    icon: [
+      {
+        url: '/images/icon.svg',
+        href: '/images/icon.svg'
+      }
+    ]
   }
 }
 
@@ -43,9 +47,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       suppressHydrationWarning
     >
       <body className='min-h-screen'>
-        <Providers attribute='class' defaultTheme='system' enableSystem>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )
