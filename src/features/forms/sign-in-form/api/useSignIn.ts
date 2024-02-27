@@ -21,6 +21,7 @@ export const useSignIn = (
     mutationFn: signIn,
     onSuccess: () => {
       router.replace('/profile')
+      router.refresh()
       reset()
     },
     onError: (error) => {

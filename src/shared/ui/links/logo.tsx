@@ -1,5 +1,3 @@
-import { inter } from '@/shared/styles/fonts'
-import { cn } from '@/shared/utils/classNames'
 import Link from 'next/link'
 import React from 'react'
 
@@ -9,10 +7,7 @@ interface LogoProps
 const Logo = React.forwardRef<HTMLAnchorElement, LogoProps>(() => {
   return (
     <Link
-      className={cn(
-        'text-[25px] font-bold transition-colors hover:text-muted-foreground',
-        inter.className
-      )}
+      className='font-inter text-[25px] font-bold transition-colors hover:text-muted-foreground'
       href='/'
     >
       KEYCAP.

@@ -5,10 +5,7 @@ import { PrivateRoutes, PublicRoutes, Tokens } from './shared/types/enums'
 export const middleware = (request: NextRequest) => {
   const { url, cookies } = request
 
-  console.log(url, cookies)
-
   const refreshToken = cookies.get(Tokens.Refresh)?.value
-
   const isAuthPage =
     url.includes(PublicRoutes.SignIn) || url.includes(PublicRoutes.SignUp)
 

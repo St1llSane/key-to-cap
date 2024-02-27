@@ -1,5 +1,3 @@
-import { inter } from '@/shared/styles/fonts'
-import { cn } from '@/shared/utils/classNames'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { NavDataProducts } from './constants/constants'
@@ -31,12 +29,7 @@ const NavItemCard = ({
           alt={categoryName}
           priority
         />
-        <span
-          className={cn(
-            'absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center text-xl font-semibold uppercase tracking-[0.075em] text-background',
-            inter.className
-          )}
-        >
+        <span className='absolute bottom-0 left-0 right-0 top-0 z-20 flex items-center justify-center font-inter text-xl font-semibold uppercase tracking-[0.075em] text-background'>
           {previewImageText}
         </span>
       </Link>

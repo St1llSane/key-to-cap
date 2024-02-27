@@ -14,6 +14,7 @@ export const useSignOut = () => {
     mutationFn: signOut,
     onSuccess: () => {
       router.replace('/')
+      router.refresh()
     },
     onError: (error) => {
       console.log('error', error)

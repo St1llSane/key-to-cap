@@ -1,9 +1,10 @@
 import SearchBtn from '@/features/buttons/search-btn'
 import LinkButton from '@/shared/ui/links/link'
 import { ShoppingCart, User2 } from 'lucide-react'
+import { cookies } from 'next/headers'
 
 const UserMenu = () => {
-  const isUserAuth = false
+  const isUserAuth = cookies().has('refresh_token')
 
   return (
     <div className='ml-auto flex items-center gap-x-3'>
@@ -31,14 +32,9 @@ const UserMenu = () => {
           data-testid='profile-link'
         />
       ) : (
-        <LinkButton
-          variant='ghost'
-          size='icon'
-          href='sign-in/'
-          Icon={
-            <User2 className='text-primary' size={20} strokeWidth={1.75} />
-          }
-        />
+        <LinkButton variant='dark' href='sign-in/'>
+          Sign In
+        </LinkButton>
       )}
     </div>
   )

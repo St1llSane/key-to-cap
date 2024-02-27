@@ -1,25 +1,36 @@
 import '@/app/main.css'
-import { jost } from '@/shared/styles/fonts'
 import { cn } from '@/shared/utils/classNames'
+import { Inter, Jost } from 'next/font/google'
 import Providers from './providers'
 
 interface RootLayoutProps {
   children: React.ReactNode
 }
 
+const jost = Jost({
+  subsets: ['latin'],
+  variable: '--font-jost',
+  display: 'swap'
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap'
+})
+
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html
-      className='bg-background text-foreground'
+      className={cn(
+        'bg-background font-jost text-base font-normal text-foreground',
+        jost.variable,
+        inter.variable
+      )}
       lang='en'
       suppressHydrationWarning
     >
-      <body
-        className={cn(
-          'min-h-screen text-base font-normal',
-          jost.className
-        )}
-      >
+      <body className='min-h-screen'>
         <Providers attribute='class' defaultTheme='system' enableSystem>
           {children}
         </Providers>
