@@ -11,7 +11,7 @@ const NotFound = () => {
         <h2 className='font-inter text-[9rem] font-bold leading-none text-foreground'>
           404
         </h2>
-        <h3 className='mt-3 text-lg text-muted-foreground dark:text-gray-300'>
+        <h3 className='dark:text-gray-300 mt-3 text-lg text-muted-foreground'>
           Oops! Looks like the page you&apos;re looking for doesn&apos;t
           exist.
         </h3>

@@ -23,7 +23,7 @@ const NavItemCard = ({
         className='group relative h-full w-[40%] overflow-hidden rounded-md'
         href={`/categories/${categoryName.toLowerCase()}`}
       >
-        <span className='absolute inset-0 z-10 bg-black bg-opacity-[65%]' />
+        <span className='bg-black absolute inset-0 z-10 bg-opacity-[65%]' />
         <Image
           className='h-full object-cover transition-transform duration-200 will-change-transform group-hover:scale-[106%]'
           src={previewImageSrc}
