@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query'
 import { FieldValues, UseFormReset } from 'react-hook-form'
 
 import { instance } from '@/shared/api/axiosInstance'
+import Toasts from '@/shared/ui/toasts'
 
 import { fields } from '../sign-in-form'
 
@@ -30,6 +31,9 @@ export const useSignIn = (
     },
     onError: (error) => {
       console.log('error', error)
+      Toasts.error({
+        title: 'Error Signing In'
+      })
     }
   })
 

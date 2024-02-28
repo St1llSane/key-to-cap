@@ -2,21 +2,20 @@
 
 import Link from 'next/link'
 
+import { useGetProducts } from '@/shared/api/hooks/useGetProducts'
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger
 } from '@/shared/ui/navigation-menu'
 
-import { useGetProducts } from '../../shared/api/hooks/useGetProducts'
 import { navCategories } from './constants/constants'
 import NavItemCard from './nav-item-card'
 
 const Nav = () => {
-  const { data, isPending } = useGetProducts()
+  const { data: navProducts } = useGetProducts()
 
   return (
     <NavigationMenu>
@@ -27,25 +26,11 @@ const Nav = () => {
             <Link href={`/categories/${category.toLowerCase()}`}>
               <NavigationMenuTrigger>{category}</NavigationMenuTrigger>
             </Link>
-            {data
-              ? Object.entries(data).map(
-                  ([
-                    categoryName,
-                    { previewImageSrc, previewImageText, products }
-                  ]) => (
-                    <NavigationMenuContent key={categoryName}>
-                      <NavItemCard
-                        previewImageSrc={previewImageSrc}
-                        previewImageText={previewImageText}
-                        categoryName={categoryName}
-                        products={products}
-                        isPending={isPending}
-                        key={categoryName}
-                      />
-                    </NavigationMenuContent>
-                  )
-                )
-              : []}
+            <NavItemCard
+              category={category}
+              navProducts={navProducts}
+              key={category}
+            />
           </NavigationMenuItem>
         ))}
         <NavigationMenuIndicator className='NavigationMenuIndicator' />

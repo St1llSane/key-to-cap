@@ -1,5 +1,3 @@
-'use client'
-
 import SmallKeyboard from '@/shared/ui/3d/small-keyboard'
 import { Button } from '@/shared/ui/buttons/button'
 

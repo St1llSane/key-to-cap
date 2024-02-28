@@ -1,7 +1,3 @@
-import { StaticImageData } from 'next/image'
-
-import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
-
 export type NavCategory = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
 export type NavDataProducts =
   | {
@@ -14,10 +10,9 @@ export type NavDataProducts =
     }[]
   | []
 export interface NavData {
-  previewImageSrc: StaticImageData
-  previewImageText: string
   products: NavDataProducts
 }
+export type NavProducts = Record<NavCategory, NavData>
 
 export const navCategories: NavCategory[] = [
   'Keyboards',
@@ -26,25 +21,17 @@ export const navCategories: NavCategory[] = [
   'Keycaps'
 ]
 
-export const navData: Record<NavCategory, NavData> = {
+export const navData: NavProducts = {
   'Keyboards': {
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Keyboards',
     products: []
   },
   'Mouses': {
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Mouses',
     products: []
   },
   'Mouse pads': {
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Mouse pads',
     products: []
   },
   'Keycaps': {
-    previewImageSrc: keyboardPreview,
-    previewImageText: 'Keycaps',
     products: []
   }
 }

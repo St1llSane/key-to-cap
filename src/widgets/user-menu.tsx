@@ -28,7 +28,7 @@ const UserMenu = () => {
         <LinkButton
           variant='ghost'
           size='icon'
-          href='profile'
+          href='/profile'
           Icon={
             <User2 className='text-primary' size={20} strokeWidth={1.75} />
           }

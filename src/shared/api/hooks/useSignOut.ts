@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation'
 
 import { useMutation } from '@tanstack/react-query'
 
+import Toasts from '@/shared/ui/toasts'
+
 import { instance } from '../axiosInstance'
 
 export const useSignOut = () => {
@@ -21,6 +23,9 @@ export const useSignOut = () => {
     },
     onError: (error) => {
       console.log('error', error)
+      Toasts.error({
+        title: 'Error Signing Out'
+      })
     }
   })
 

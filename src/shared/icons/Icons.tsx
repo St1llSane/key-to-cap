@@ -1,5 +1,6 @@
 type IconProps = React.HTMLAttributes<SVGElement>
 
+/* eslint max-lines: off */
 export const Icons = {
   spinner: (props?: IconProps) => (
     <svg

@@ -68,3 +68,10 @@
     -webkit-text-stroke: 1px hsl(0, 0%, 90%);
   }
 }
+
+@layer base {
+  [data-sonner-toast] [data-cancel] {
+    color: var(--foreground) !important;
+    background: transparent !important;
+  }
+}
