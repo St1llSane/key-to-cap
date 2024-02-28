@@ -15,21 +15,25 @@ import { navCategories } from './constants/constants'
 import NavItemCard from './nav-item-card'
 
 const Nav = () => {
-  const { data: navProducts } = useGetProducts()
+  const { data: navProducts, isPending } = useGetProducts()
 
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {navCategories.map((category) => (
-          <NavigationMenuItem key={category}>
+        {navCategories.map((item) => (
+          <NavigationMenuItem key={item.category}>
             {/* TODO get rid of button inside link */}
-            <Link href={`/categories/${category.toLowerCase()}`}>
-              <NavigationMenuTrigger>{category}</NavigationMenuTrigger>
+            <Link href={`/categories/${item.category.toLowerCase()}`}>
+              <NavigationMenuTrigger>
+                {item.category}
+              </NavigationMenuTrigger>
             </Link>
             <NavItemCard
-              category={category}
+              category={item.category}
+              previewImage={item.previewImage}
               navProducts={navProducts}
-              key={category}
+              isPending={isPending}
+              key={item.category}
             />
           </NavigationMenuItem>
         ))}

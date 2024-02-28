@@ -22,6 +22,11 @@ module.exports = {
         inter: 'var(--font-inter)'
       },
       keyframes: {
+        'pulse': {
+          '50%': {
+            opacity: 0.45
+          }
+        },
         'accordion-down': {
           from: { height: 0 },
           to: { height: 'var(--radix-accordion-content-height)' }
@@ -32,6 +37,7 @@ module.exports = {
         }
       },
       animation: {
+        'pulse': 'pulse 2s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
       }

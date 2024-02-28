@@ -1,18 +1,26 @@
 import Link from 'next/link'
 
 import { NavProducts } from './constants/constants'
+import { NavProductsSkeleton } from './nav-products-skeleton'
 
 interface NavItemProductsProps {
   navProducts: NavProducts | null
   category: string
+  isPending: boolean
 }
 
 const NavItemProducts = ({
   navProducts,
-  category
+  category,
+  isPending
 }: NavItemProductsProps) => {
-  return navProducts
-    ? Object.entries(navProducts).map(
+  if (isPending) return <NavProductsSkeleton />
+
+  if (!navProducts) return <></>
+
+  return (
+    <>
+      {Object.entries(navProducts).map(
         ([categoryName, { products }]) =>
           category === categoryName && (
             <div
@@ -35,8 +43,9 @@ const NavItemProducts = ({
               ))}
             </div>
           )
-      )
-    : []
+      )}
+    </>
+  )
 }
 
 export default NavItemProducts

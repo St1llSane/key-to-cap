@@ -1,7 +1,5 @@
-import Image from 'next/image'
+import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
-
-import keyboardPreview from '@/assets/categories_previews/keyboard_preview.webp'
 
 import { NavigationMenuContent } from '@/shared/ui/navigation-menu'
 
@@ -10,10 +8,17 @@ import NavItemProducts from './nav-item-products'
 
 interface NavItemCardProps {
   category: string
+  previewImage: StaticImageData
   navProducts: NavProducts | null
+  isPending: boolean
 }
 
-const NavItemCard = ({ category, navProducts }: NavItemCardProps) => {
+const NavItemCard = ({
+  category,
+  previewImage,
+  navProducts,
+  isPending
+}: NavItemCardProps) => {
   return (
     <NavigationMenuContent>
       <div className='flex h-64 max-w-[510px] justify-between gap-4 overflow-hidden'>
@@ -24,7 +29,7 @@ const NavItemCard = ({ category, navProducts }: NavItemCardProps) => {
           <span className='absolute inset-0 z-10 bg-foreground opacity-60' />
           <Image
             className='h-full object-cover transition-transform duration-200 group-hover:scale-[105%]'
-            src={keyboardPreview}
+            src={previewImage}
             alt={category}
             priority
           />
@@ -32,7 +37,11 @@ const NavItemCard = ({ category, navProducts }: NavItemCardProps) => {
             {category}
           </span>
         </Link>
-        <NavItemProducts navProducts={navProducts} category={category} />
+        <NavItemProducts
+          navProducts={navProducts}
+          category={category}
+          isPending={isPending}
+        />
       </div>
     </NavigationMenuContent>
   )
