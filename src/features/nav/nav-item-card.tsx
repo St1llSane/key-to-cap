@@ -8,13 +8,12 @@ import { NavigationMenuContent } from '@/shared/ui/navigation-menu'
 import { NavProducts } from './constants/constants'
 import NavItemProducts from './nav-item-products'
 
-const NavItemCard = ({
-  category,
-  navProducts
-}: {
+interface NavItemCardProps {
   category: string
   navProducts: NavProducts | null
-}) => {
+}
+
+const NavItemCard = ({ category, navProducts }: NavItemCardProps) => {
   return (
     <NavigationMenuContent>
       <div className='flex h-64 max-w-[510px] justify-between gap-4 overflow-hidden'>

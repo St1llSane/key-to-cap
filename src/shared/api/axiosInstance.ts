@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { refreshTokens } from './refreshTokens'
+import { refreshToken } from './refreshToken'
 
 export const instance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_HOST,
@@ -33,7 +33,7 @@ instance.interceptors.response.use(
 
     if (error.response.status === 401 && requestAttempts < 1) {
       requestAttempts++
-      await refreshTokens()
+      await refreshToken()
 
       return instance(originalRequest)
     }

@@ -4,14 +4,14 @@ import { ShoppingCart, User2 } from 'lucide-react'
 
 import LinkButton from '@/shared/ui/links/link'
 
-import SearchBtn from '@/features/buttons/search-btn'
+import SearchInput from '@/features/inputs/search-input'
 
 const UserMenu = () => {
   const isUserAuth = cookies().has('refresh_token')
 
   return (
-    <div className='ml-auto flex items-center gap-x-3'>
-      <SearchBtn />
+    <div className='ml-auto flex items-center space-x-4'>
+      <SearchInput />
       <LinkButton
         variant='ghost'
         size='icon'

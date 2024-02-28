@@ -2,13 +2,15 @@ import Link from 'next/link'
 
 import { NavProducts } from './constants/constants'
 
+interface NavItemProductsProps {
+  navProducts: NavProducts | null
+  category: string
+}
+
 const NavItemProducts = ({
   navProducts,
   category
-}: {
-  navProducts: NavProducts | null
-  category: string
-}) => {
+}: NavItemProductsProps) => {
   return navProducts
     ? Object.entries(navProducts).map(
         ([categoryName, { products }]) =>

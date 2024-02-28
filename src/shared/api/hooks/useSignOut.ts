@@ -12,7 +12,7 @@ export const useSignOut = () => {
   const router = useRouter()
 
   const signOut = async () => {
-    await instance.post('sign-out/')
+    return await instance.post('sign-out/')
   }
 
   const { mutateAsync, isPending } = useMutation({
@@ -21,8 +21,7 @@ export const useSignOut = () => {
       router.replace('/')
       router.refresh()
     },
-    onError: (error) => {
-      console.log('error', error)
+    onError: () => {
       Toasts.error({
         title: 'Error Signing Out'
       })

@@ -1,5 +1,3 @@
-import { useMemo } from 'react'
-
 import { useRouter } from 'next/navigation'
 
 import { useMutation } from '@tanstack/react-query'
@@ -29,15 +27,12 @@ export const useSignUp = (
       router.refresh()
       reset()
     },
-    onError: (error) => {
-      console.log('error', error)
+    onError: () => {
       Toasts.error({
         title: 'Error Signing Up'
       })
     }
   })
 
-  return useMemo(() => {
-    return { mutateAsync, isPending }
-  }, [mutateAsync, isPending])
+  return { mutateAsync, isPending }
 }

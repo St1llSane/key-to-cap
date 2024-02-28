@@ -1,5 +1,5 @@
 import { instance } from './axiosInstance'
 
-export const refreshTokens = async () => {
+export const refreshToken = async () => {
   return await instance.post('refresh/')
 }
