@@ -10,7 +10,7 @@ const UserMenu = () => {
   const isUserAuth = cookies().has('refresh_token')
 
   return (
-    <div className='ml-auto flex items-center space-x-4'>
+    <div className='ml-auto flex items-center gap-x-4'>
       <SearchInput />
       <LinkButton
         variant='ghost'
@@ -18,7 +18,7 @@ const UserMenu = () => {
         href='/cart'
         Icon={
           <ShoppingCart
-            className='text-primary'
+            className='text-foreground'
             size={20}
             strokeWidth={1.75}
           />
@@ -30,12 +30,16 @@ const UserMenu = () => {
           size='icon'
           href='/profile'
           Icon={
-            <User2 className='text-primary' size={20} strokeWidth={1.75} />
+            <User2
+              className='text-foreground'
+              size={20}
+              strokeWidth={1.75}
+            />
           }
           data-testid='profile-link'
         />
       ) : (
-        <LinkButton variant='dark' href='sign-in/'>
+        <LinkButton variant='solid' href='sign-in/'>
           Sign In
         </LinkButton>
       )}

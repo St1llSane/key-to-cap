@@ -15,7 +15,7 @@ import { navCategories } from './constants/constants'
 import NavItemCard from './nav-item-card'
 
 const Nav = () => {
-  const { data: navProducts, isPending } = useGetProducts()
+  const { data: products, isPending } = useGetProducts()
 
   return (
     <NavigationMenu>
@@ -31,7 +31,7 @@ const Nav = () => {
             <NavItemCard
               category={item.category}
               previewImage={item.previewImage}
-              navProducts={navProducts}
+              products={products}
               isPending={isPending}
               key={item.category}
             />

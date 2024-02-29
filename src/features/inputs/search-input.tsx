@@ -14,12 +14,12 @@ const SearchInput = () => {
         placeholder='Search...'
       />
       <Button
-        className='absolute bottom-0 right-0 top-0 w-7 hover:bg-[transparent]'
+        className='absolute bottom-0 right-0 top-0 h-[calc(100%_-_1px)]'
         variant='ghost'
         size='icon'
       >
         <Search
-          className='absolute right-0 text-primary'
+          className='absolute text-foreground'
           size={20}
           strokeWidth={1.75}
         />

@@ -16,7 +16,7 @@ const SignIn = () => {
           alt='Varmilo_Summit_R1_87'
           priority
         />
-        <div className='absolute inset-0 z-10 bg-primary opacity-30' />
+        <div className='absolute inset-0 z-10 bg-foreground opacity-30' />
       </div>
       <div className='relative grid w-full place-content-center py-5'>
         <div className='absolute left-8 top-7'>

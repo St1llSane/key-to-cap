@@ -39,12 +39,16 @@ const PasswordInput = React.forwardRef<
         >
           {showPassword ? (
             <EyeOff
-              className='text-primary'
+              className='text-foreground'
               size={20}
               strokeWidth={1.75}
             />
           ) : (
-            <Eye className='text-primary' size={20} strokeWidth={1.75} />
+            <Eye
+              className='text-foreground'
+              size={20}
+              strokeWidth={1.75}
+            />
           )}
         </Button>
       )}

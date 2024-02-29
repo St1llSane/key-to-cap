@@ -1,22 +1,22 @@
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 
+import { NavCategory, Products } from '@/shared/types/types'
 import { NavigationMenuContent } from '@/shared/ui/navigation-menu'
 
-import { NavProducts } from './constants/constants'
 import NavItemProducts from './nav-item-products'
 
 interface NavItemCardProps {
-  category: string
+  category: NavCategory
   previewImage: StaticImageData
-  navProducts: NavProducts | null
+  products: Products | undefined
   isPending: boolean
 }
 
 const NavItemCard = ({
   category,
   previewImage,
-  navProducts,
+  products,
   isPending
 }: NavItemCardProps) => {
   return (
@@ -38,8 +38,8 @@ const NavItemCard = ({
           </span>
         </Link>
         <NavItemProducts
-          navProducts={navProducts}
           category={category}
+          products={products}
           isPending={isPending}
         />
       </div>

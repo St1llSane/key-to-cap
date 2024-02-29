@@ -11,16 +11,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          'font-medium bg-background hover:bg-secondary border border-input',
-        dark: 'text-primary-foreground bg-foreground hover:text-foreground hover:bg-accent',
-        solid: 'bg-primary text-primary-foreground',
+          'font-medium bg-background border border-input transition duration-200 hover:bg-accent hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)]',
+        dark: 'text-foreground-foreground bg-foreground hover:text-foreground hover:bg-accent',
+        solid:
+          'text-background bg-foreground hover:text-foreground hover:bg-accent',
         underline: 'underline-offset-[5px] hover:underline',
         destructive:
           'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent',
-        link: 'text-primary underline-offset-4 hover:underline'
+        link: 'text-foreground underline-offset-4 hover:underline'
       },
       size: {
         default: 'h-10 px-5',

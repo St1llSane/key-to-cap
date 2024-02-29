@@ -5,7 +5,7 @@ export enum Tokens {
 }
 
 export enum QueryKeys {
-  Users = 'Users',
+  User = 'User',
   Products = 'Products',
   IsUserAuth = 'IsUserAuth'
 }

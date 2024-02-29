@@ -10,7 +10,7 @@ const Hero = () => {
           <span className='tracking-[0.01em]'>One glance is enough,</span>
           <span className='tracking-[0.01em]'>one press - isn&apos;t</span>
         </p>
-        <Button className='mt-8 w-fit'>Show me!</Button>
+        <Button className='mt-8'>Show me!</Button>
       </div>
       <div className='relative grid justify-end'>
         <SmallKeyboard />

@@ -31,7 +31,7 @@ const AuthWithServices = React.forwardRef<
       {providers.map((provider) => (
         <Button
           className='flex flex-1 items-center gap-x-2 shadow-md'
-          variant='dark'
+          variant='solid'
           size='sm'
           ref={ref}
           key={provider.name}

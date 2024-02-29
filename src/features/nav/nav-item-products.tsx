@@ -1,33 +1,34 @@
 import Link from 'next/link'
 
-import { NavProducts } from './constants/constants'
+import { NavCategory, Products } from '@/shared/types/types'
+
 import { NavProductsSkeleton } from './nav-products-skeleton'
 
 interface NavItemProductsProps {
-  navProducts: NavProducts | null
-  category: string
+  category: NavCategory
+  products: Products | undefined
   isPending: boolean
 }
 
 const NavItemProducts = ({
-  navProducts,
   category,
+  products,
   isPending
 }: NavItemProductsProps) => {
   if (isPending) return <NavProductsSkeleton />
 
-  if (!navProducts) return <></>
+  if (!products) return <></>
 
   return (
     <>
-      {Object.entries(navProducts).map(
-        ([categoryName, { products }]) =>
+      {Object.entries(products).map(
+        ([categoryName]) =>
           category === categoryName && (
             <div
               className='grid flex-1 grid-cols-1 grid-rows-4'
               key={categoryName}
             >
-              {products.map((product) => (
+              {products[categoryName].map((product) => (
                 <Link
                   className='flex h-full flex-col items-start justify-center gap-[2px] rounded-md px-3 transition-colors hover:bg-accent'
                   href={`/categories/${categoryName.toLowerCase()}${product.name}${
