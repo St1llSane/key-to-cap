@@ -1,9 +1,11 @@
-import Hero from '@/widgets/sections/hero'
+import Hero from '@/widgets/sections/hero/hero'
+import Products from '@/widgets/sections/products/products'
 
 const Home = () => {
   return (
-    <main data-testid='home-page'>
+    <main className='space-y-12' data-testid='home-page'>
       <Hero />
+      <Products />
     </main>
   )
 }

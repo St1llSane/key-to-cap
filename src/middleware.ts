@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-import { PrivateRoutes, PublicRoutes, Tokens } from './shared/types/enums'
+import { PrivateRoute, PublicRoute, Token } from './shared/types/enums'
 
 export const middleware = (request: NextRequest) => {
   const { url, cookies } = request
 
-  const refreshToken = cookies.get(Tokens.Refresh)?.value
+  const refreshToken = cookies.get(Token.Refresh)?.value
   const isAuthPage =
-    url.includes(PublicRoutes.SignIn) || url.includes(PublicRoutes.SignUp)
+    url.includes(PublicRoute.SignIn) || url.includes(PublicRoute.SignUp)
 
   if (refreshToken && isAuthPage) {
     return NextResponse.redirect(
-      new URL(PrivateRoutes.Profile, request.url)
+      new URL(PrivateRoute.Profile, request.url)
     )
   }
 
@@ -21,7 +21,7 @@ export const middleware = (request: NextRequest) => {
   }
 
   if (!refreshToken) {
-    return NextResponse.redirect(new URL(PublicRoutes.SignIn, request.url))
+    return NextResponse.redirect(new URL(PublicRoute.SignIn, request.url))
   }
 
   return NextResponse.next()

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { QueryKeys } from '@/shared/types/enums'
+import { QueryKey } from '@/shared/types/enums'
 import { Products } from '@/shared/types/types'
 
 import { instance } from '../axiosInstance'
@@ -13,7 +13,7 @@ export const useGetProducts = () => {
   }
 
   const { data, isPending } = useQuery({
-    queryKey: [QueryKeys.Products],
+    queryKey: [QueryKey.Products],
     queryFn: getProducts,
     retry: 1,
     refetchOnWindowFocus: false
@@ -35,5 +35,5 @@ export const useGetProducts = () => {
   //   }
   // }, [data, isSuccess])
 
-  return { data, isPending }
+  return { products: data, isPending }
 }

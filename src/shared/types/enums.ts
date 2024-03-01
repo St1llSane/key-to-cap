@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
-export enum Tokens {
+export enum Token {
   Access = 'access_token',
   Refresh = 'refresh_token'
 }
 
-export enum QueryKeys {
+export enum QueryKey {
   User = 'User',
   Products = 'Products',
   IsUserAuth = 'IsUserAuth'
 }
 
-export enum PublicRoutes {
+export enum PublicRoute {
   Home = '/',
   SignIn = '/sign-in',
   SignUp = '/sign-up'
 }
-export enum PrivateRoutes {
+export enum PrivateRoute {
   Profile = '/profile'
 }

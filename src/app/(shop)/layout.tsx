@@ -1,13 +1,11 @@
 import Header from '@/features/header/header'
 
-import Container from '../container'
-
 const ShopLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <>
+    <div className='container'>
       <Header />
-      <Container>{children}</Container>
-    </>
+      {children}
+    </div>
   )
 }
 

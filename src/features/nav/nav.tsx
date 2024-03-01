@@ -15,7 +15,7 @@ import { navCategories } from './constants/constants'
 import NavItemCard from './nav-item-card'
 
 const Nav = () => {
-  const { data: products, isPending } = useGetProducts()
+  const { products, isPending } = useGetProducts()
 
   return (
     <NavigationMenu>
