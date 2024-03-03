@@ -11,8 +11,12 @@ export interface UserPublic {
   updatedAt: string | null
 }
 
-export type NavCategory = 'Keyboards' | 'Mouses' | 'Mouse pads' | 'Keycaps'
-interface NavProducts {
+export type ProductCategory =
+  | 'Keyboards'
+  | 'Mouses'
+  | 'Mouse pads'
+  | 'Keycaps'
+export interface Product {
   id: number
   name: string
   description: string
@@ -21,7 +25,7 @@ interface NavProducts {
   categoryId: number
 }
 export interface NavCategories {
-  category: NavCategory
+  category: ProductCategory
   previewImage: StaticImageData
 }
-export type Products = Record<NavCategory, NavProducts[]>
+export type Products = Record<ProductCategory, Product[]>

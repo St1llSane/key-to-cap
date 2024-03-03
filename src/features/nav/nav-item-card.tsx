@@ -1,13 +1,13 @@
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 
-import { NavCategory, Products } from '@/shared/types/types'
+import { ProductCategory, Products } from '@/shared/types/types'
 import { NavigationMenuContent } from '@/shared/ui/navigation-menu'
 
 import NavItemProducts from './nav-item-products'
 
 interface NavItemCardProps {
-  category: NavCategory
+  category: ProductCategory
   previewImage: StaticImageData
   products: Products | undefined
   isPending: boolean

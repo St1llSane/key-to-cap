@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
-import { NavCategory, Products } from '@/shared/types/types'
+import { ProductCategory, Products } from '@/shared/types/types'
 
 import { NavProductsSkeleton } from './nav-products-skeleton'
 
 interface NavItemProductsProps {
-  category: NavCategory
+  category: ProductCategory
   products: Products | undefined
   isPending: boolean
 }
