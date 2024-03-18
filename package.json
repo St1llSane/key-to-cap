@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "test": "jest",
+    "coverage": "jest --coverage --watchAll",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

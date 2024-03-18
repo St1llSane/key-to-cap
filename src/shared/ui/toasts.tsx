@@ -5,7 +5,7 @@ interface ToastProps extends Omit<ToastT, 'id'> {}
 
 const Toasts = {
   info: (props?: ToastProps) =>
-    toast.info('', {
+    toast.info('Info', {
       cancel: {
         label: <X size={16} strokeWidth={1.75} />
       },

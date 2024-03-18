@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 
 import Home from '@/pages/(shop)/home'
 
-test('Home page render', () => {
+it('Render Home page', () => {
   render(<Home />)
-  const elem = screen.getByTestId('home-page')
-  expect(elem).toBeInTheDocument()
+  const home = screen.getByRole('main')
+  expect(home).toBeInTheDocument()
 })

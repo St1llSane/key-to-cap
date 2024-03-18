@@ -19,8 +19,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
     if (!isFavourite) {
       Toasts.info({
-        description: 'Product was added to the cart'
+        description: 'Product was added to the cart',
+        duration: 100000
       })
+      console.log('toast:', <Toasts.info description='fsdds' />)
     } else {
       Toasts.info({
         description: 'Product was removed from the cart'
