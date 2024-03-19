@@ -5,7 +5,7 @@ import Categories from './categories/categories'
 
 const Hero = () => {
   return (
-    <section className='h-[calc(100vh_-_80px)]'>
+    <section className='min-h-[calc(100vh_-_80px)]'>
       <div className='grid grid-cols-[600px_1fr] place-content-center items-center gap-10 py-36'>
         <div>
           <h1 className='text-xl'>KEYCAP. store</h1>
