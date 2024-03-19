@@ -6,6 +6,6 @@
 .prettierignore
 .eslintignore
 
-./*.json
-./*.js
-./*.ts
+/*.json
+/*.js
+/*.ts
