@@ -1,5 +1,5 @@
 import SmallKeyboard from '@/shared/ui/3d/small-keyboard'
-import { Button } from '@/shared/ui/buttons/button'
+import LinkButton from '@/shared/ui/links/link'
 
 import Categories from './categories/categories'
 
@@ -17,7 +17,9 @@ const Hero = () => {
               one press - isn&apos;t
             </span>
           </p>
-          <Button className='mt-8'>Show me!</Button>
+          <LinkButton className='mt-8 inline-flex' href='/'>
+            Show me!
+          </LinkButton>
         </div>
         <div className='relative grid justify-end'>
           <SmallKeyboard />

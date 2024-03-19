@@ -36,7 +36,6 @@ const UserMenu = () => {
               strokeWidth={1.75}
             />
           }
-          data-testid='profile-link'
         />
       ) : (
         <LinkButton variant='solid' href='sign-in/'>

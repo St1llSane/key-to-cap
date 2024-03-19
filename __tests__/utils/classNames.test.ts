@@ -1,11 +1,11 @@
 import { cn } from '@/shared/utils/classNames'
 
-describe('Return string', () => {
+describe('Return', () => {
   it('array of strings', () => {
     expect(typeof cn(['className1', 'className2'])).toBe('string')
   })
 
-  it('with conditions', () => {
+  it('string by conditions check', () => {
     const isTrue = true
     const isFalse = false
 

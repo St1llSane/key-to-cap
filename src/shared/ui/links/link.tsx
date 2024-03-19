@@ -29,10 +29,10 @@ const LinkButton = ({
   ...props
 }: CustomLinkProps) => {
   return (
-    <Button variant={variant} size={size} asChild>
+    <Button variant={variant} size={size} asSlot>
       <Link href={href} {...props}>
         {Icon && Icon}
-        {children && <span>{children}</span>}
+        {children && children}
       </Link>
     </Button>
   )
