@@ -23,4 +23,10 @@ jobs:
       - run: npm ci
       - name: npm run lint
         run: npm run lint
+      - name: npm run lint:fix
+        run: npm run lint:fix
+      - name: npm run pretty:write
+        run: npm run pretty:write
+      - name: npm run test
+        run: npm run test
       - run: echo "🍏 Job status is ${{ job.status }}"
