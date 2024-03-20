@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "start": "next start",
-    "type-check": "tsc --allowJs --jsx preserve --noEmit",
+    "type-check": "tsc --project tsconfig.json --noEmit",
     "test": "jest",
     "coverage": "jest --coverage",
     "prepare": "husky install",
