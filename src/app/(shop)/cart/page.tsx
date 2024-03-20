@@ -1,1 +1,5 @@
-export { default } from '@/pages/(shop)/cart/cart'
+const cart = () => {
+  return <div>cart</div>
+}
+
+export default cart

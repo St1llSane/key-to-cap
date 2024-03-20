@@ -3,9 +3,8 @@ module.exports = {
   darkMode: ['class'],
   content: [
     './src/shared/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
     './src/features/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {

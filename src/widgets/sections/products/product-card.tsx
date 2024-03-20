@@ -19,10 +19,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
     if (!isFavourite) {
       Toasts.info({
-        description: 'Product was added to the cart',
-        duration: 100000
+        description: 'Product was added to the cart'
       })
-      console.log('toast:', <Toasts.info description='fsdds' />)
     } else {
       Toasts.info({
         description: 'Product was removed from the cart'
@@ -41,9 +39,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <p className='mt-1.5 font-inter text-sm text-muted-foreground'>
             {product.description}
           </p>
-          <span className='mt-4 flex items-baseline gap-x-1 text-lg'>
+          <span className='mt-4 flex items-center gap-x-0.5 text-lg'>
             {product.price}
-            <span className='text-sm'>US</span>
+            <span className='text-sm'>$</span>
           </span>
         </div>
         <div className='flex gap-4'>
