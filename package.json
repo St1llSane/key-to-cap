@@ -49,6 +49,7 @@
   "devDependencies": {
     "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/eslint-plugin-query": "^5.27.7",
     "@testing-library/jest-dom": "^6.3.0",
     "@testing-library/react": "^14.1.2",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
