@@ -2,7 +2,7 @@ name: Checks
 run-name: ${{ github.repository }} GitHub Actions 🚀
 on:
   push:
-    branches: ['feature/**']
+    branches: [main, dev, 'feature/**']
   pull_request: 
     branches: [main, dev]
 jobs:
