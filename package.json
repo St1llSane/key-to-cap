@@ -21,10 +21,8 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run type-check"
-    ],
     "*.{js,jsx,ts,tsx}": [
+      "npm run type-check",
       "npm run pretty:write",
       "npm run lint:fix"
     ],
