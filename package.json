@@ -5,14 +5,15 @@
   "type": "commonjs",
   "scripts": {
     "dev": "next dev",
+    "start": "next start",
+    "type-check": "tsc --noEmit",
     "test": "jest",
     "coverage": "jest --coverage",
-    "build": "next build",
-    "start": "next start",
+    "prepare": "husky install",
     "lint": "next lint",
     "lint:fix": "eslint --fix .",
     "pretty:write": "prettier --write .",
-    "prepare": "husky install"
+    "build": "next build"
   },
   "husky": {
     "hooks": {

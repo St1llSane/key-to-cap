@@ -20,6 +20,8 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - run: npm ci
+      - name: npm run type-check
+        run: npm run type-check
       - name: npm run lint
         run: npm run lint
       - name: npm run lint:fix
