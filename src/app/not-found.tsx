@@ -16,7 +16,7 @@ const NotFound = () => {
           exist.
         </h3>
         <LinkButton
-          className='mt-6 underline underline-offset-8'
+          className='mt-6'
           variant='underline'
           size='unset'
           href='/'

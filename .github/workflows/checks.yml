@@ -1,13 +1,12 @@
-name: Jobs
+name: Checks
 run-name: ${{ github.repository }} GitHub Actions 🚀
 on:
   push:
-    branches:
-      - main
-      - dev
-      - 'feature/**'
+    branches: ['feature/**']
+  pull_request: 
+    branches: [main, dev]
 jobs:
-  lint:
+  Checks:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,6 +20,8 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - run: npm ci
+      - name: npm run type-check
+        run: npm run type-check
       - name: npm run lint
         run: npm run lint
       - name: npm run lint:fix

@@ -1,1 +1,5 @@
-export { default } from '@/pages/(shop)/categories/keyboards/keyboards'
+const Keyboards = () => {
+  return <div>Keyboards</div>
+}
+
+export default Keyboards

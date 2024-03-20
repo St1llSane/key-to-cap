@@ -1,5 +1,4 @@
 {
-  "ignorePath": ".prettierignore",
   "printWidth": 75,
   "tabWidth": 2,
   "semi": false,
@@ -21,7 +20,6 @@
     "^@/shared/(.*)$",
     "^@/widgets/(.*)$",
     "^@/features/(.*)$",
-    "^@/pages/(.*)$",
     "^@/app/(.*)$",
     "^[./]"
   ],

@@ -1,1 +1,5 @@
-export { default } from '@/pages/(shop)/categories/categories'
+const Categories = () => {
+  return <div>Categories</div>
+}
+
+export default Categories

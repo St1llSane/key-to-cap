@@ -1,11 +1,7 @@
 **/*.yml
 **/*.md
-**/*.test.tsx
-**/*.test.ts
 
 .prettierignore
 .eslintignore
 
-/*.json
-/*.js
-/*.ts
+package-lock.json
