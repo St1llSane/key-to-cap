@@ -1,11 +1,11 @@
 name: Checks
 on:
   push:
-    branches: [main, dev]
-  pull_request: 
+    branches: [main, dev, 'feature/*']
+  pull_request:
     branches: [main, dev]
 jobs:
-  Checks:
+  type-check:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,18 +13,71 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{secrets.GITHUB_TOKEN}}
-      - name: Setup Node JS ${{matrix.node-version}}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node JS ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: ${{matrix.node-version}}
+          node-version: ${{ matrix.node-version }}
       - run: npm ci
       - name: npm run type-check
         run: npm run type-check
+  test:
+    needs: [type-check]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - name: npm run test
+        run: npm run test
+      - run: echo "🍏 Job status is ${{ job.status }}"
+  lint:
+    needs: [test]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
       - name: npm run lint
         run: npm run lint
       - name: npm run lint:fix
         run: npm run lint:fix
+      - name: npm run pretty:write
+        run: npm run pretty:write
+      - name: npm run test
+        run: npm run test
+      - run: echo "🍏 Job status is ${{ job.status }}"
+  pretty:
+    needs: [test]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node JS ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
       - name: npm run pretty:write
         run: npm run pretty:write
       - name: npm run test
